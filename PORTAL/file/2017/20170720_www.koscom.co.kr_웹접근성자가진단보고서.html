@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8" />
+<html lang="ko"> 
+<head>
+<title>웹 접근성 자가진단보고서</title>
+<style type="text/css">
+body{font-size:12px; text-align:left; font-family:NanumGothic, Geneva, sans-serif;margin-top:5px; word-break:break-all;}
+#wrapper{ border:solid 1px;width:725px;margin:auto;height:1060px;}
+#wrapper2{ border:solid 1px;width:725px;margin:auto;margin-top:20px;height:1060px;sans-serif;}
+#wrapper3{ border:solid 1px;width:725px;margin:auto;margin-top:20px;height:1060px;}
+#wrapper4{ border:solid 1px;width:725px;margin:auto;margin-top:20px;height:auto;}
+#text{margin-left: 46px;margin-top: 74px;}
+#text1{margin-left: 46px;margin-top: 30px;}
+#text1 .dimmed{color:rgb(147, 147, 147);}
+span.eval_excellent{color:blue;}
+span.eval_good{color:green;}
+span.eval_normal{color:black;}
+span.eval_poor{color:red;}
+#text2{width: 634px;border: none;border-collapse: collapse;border-spacing: 0;font-size: 8pt;font-family: NanumGothic, Geneva, sans-serif;}
+#text2 tr{border-bottom: solid 1px #8DB3E2;height: 23px;}
+#text2 .td1{border-right: solid 1px #8DB3E2;text-align: center;}
+#text2 .td2{border-right: solid 1px #8DB3E2;}
+#text2 td.td2 div{margin-left:4px;}
+#text2 td.td3 div{margin-left:4px;}
+#text4{margin-left: 125px;margin-top: 74px;}
+.text3{width: 634px;border-bottom: solid 1px;border-top:solid 1px;border-collapse: collapse;border-spacing: 0;font-size: 8pt;font-family: NanumGothic, Geneva, sans-serif;}
+td img{max-width:190px;max-height:80px;}
+.tb_str {padding:0 !important}
+.tb_str th:nth-child(2){width:45px}
+.tb_str td:nth-child(2):before{content:none !important}
+.tb_str td{border-color:#f4f4f4;background:none !important;box-shadow:none}
+.tb_str th:nth-child(2),.tb_str td:nth-child(2){border-left:none}
+.tb_str table{margin-left:0px; padding-right:0px !important; border-bottom:0px !important; }
+.tb_str ul{margin-left:-5px}
+.tb_str li{padding:3px 0 3px 5px;border-color:#f4f4f4;background:none !important}
+.vs_o{font-size:10pt; color:blue;}
+.vs_v{font-size:12pt; color:black;}
+.vs_x{font-size:10pt; color:red;}
+span.lowp{display: block;margin-top: 7px;}
+
+/*20151119 페이지 레이아웃 수정*/
+.pageLayout {margin-right:42px;}
+
+/* Result - Table Type */
+#result table{clear:both; width:100%; border-spacing:0;text-align:center; border:none; border-bottom:1px solid #A1A1A1; padding-right:0px; margin-left:0px;}
+#result th{padding:7px 0 7px 0;border-spacing:0;border:none;border-left:1px solid #A1A1A1;background:#BDBDBD; color:black; font-size:11px}
+#result td{padding:3px 0 3px 0;border-spacing:0;border:none;border-left:1px solid #A1A1A1;border-top:1px solid #A1A1A1;word-break:break-all; font-size:11px}
+#result .lt{padding-left:5px;text-align:left}
+#result tr.warning td{background:-moz-linear-gradient(top,#fcfcdd 0%,#ffffaa 100%);background:-webkit-gradient(linear,0 0,0 100%,color-stop(0%,#fcfcdd),color-stop(100%,#ffffaa))}
+#result tr.warning td:nth-child(2) {background:#ffa no-repeat 5px 3px;background: no-repeat 5px 3px,-moz-linear-gradient(top,#fcfcdd 0%,#ffffaa 100%);
+background: no-repeat 5px 3px,-webkit-gradient(linear,0 0,0 100%,color-stop(0%,#fcfcdd),color-stop(100%,#ffffaa))}
+#result tr.fail td{background:#fda6a6;background-image:-moz-linear-gradient(top,#fceaea 0%,#fda6a6 100%);
+background-image:-webkit-gradient(linear,0 0,0 100%,color-stop(0%,#fceaea),color-stop(100%,#fda6a6))}
+#result tr.fail td:nth-child(2) {background:#fda6a6 no-repeat 5px 3px;background: no-repeat 5px 3px,-moz-linear-gradient(top,#fceaea 0%,#fda6a6 100%);
+background: no-repeat 5px 3px,-webkit-gradient(linear,0 0,0 100%,color-stop(0%,#fceaea),color-stop(100%,#fda6a6))}
+#result tr.hidden_el td,
+#result tr.hidden_el td li{color:#999}
+#result tr.hidden_el span{color:#999}
+#result tr.blind_el td:nth-child(2):before{content:'Blind'}
+#result tr.hidden_el td:nth-child(2):before{content:'O'}
+/* Result - List Type */
+#result ul{margin:0;padding:0;list-style:none;}
+#result li{display:block;padding:2px 15px;background:#fff;color:#333;text-decoration:none;word-break:break-all}
+#result li:nth-child(2){border-top:none}
+#result li:hover>div{text-shadow:none}
+#result li.warning{background:#ffa url(http://www.coolcheck.co.kr/NewCCA/imgs/warning.png) no-repeat 5px 3px;background:url(http://www.coolcheck.co.kr/NewCCA/imgs/warning.png) no-repeat 5px 3px,-moz-linear-gradient(top,#fcfcdd 0%,#ffffaa 100%);
+background:url(http://www.coolcheck.co.kr/NewCCA/imgs/warning.png) no-repeat 5px 3px,-webkit-gradient(linear,0 0,0 100%,color-stop(0%,#fcfcdd),color-stop(100%,#ffffaa))}
+#result li.fail {background:#fda6a6 url(http://www.coolcheck.co.kr/NewCCA/imgs/error.png) no-repeat 5px 3px;background:url(http://www.coolcheck.co.kr/NewCCA/imgs/error.png) no-repeat 5px 3px,-moz-linear-gradient(top,#fceaea 0%,#fda6a6 100%);
+background:url(http://www.coolcheck.co.kr/NewCCA/imgs/error.png) no-repeat 5px 3px,-webkit-gradient(linear,0 0,0 100%,color-stop(0%,#fceaea),color-stop(100%,#fda6a6))}
+</style>
+</head>
+<body>
+<div id="wrapper4">
+	<div id="text1" >
+		<div style="width: 93%; border-top:0px solid #D3D3D3; margin-top:50px;"></div>
+		<div class="pageLayout">
+		<p align="center" style="margin-top: 37px;margin-bottom: 30px;"><span style='font-size:24pt;font-family:"HY견고딕","serif"; color:#014099;'>웹 접근성 자가진단보고서</span></p>
+		</div>
+		
+		<table cellpadding="0" cellspacing="0" style="width: 600px; margin-left:15px;">
+			<tr>
+				<td align="center" style="width:110px;background-color:#C6D9F1;height: 30px;border-right: solid #8DB3E2 1px;border-top: solid #8DB3E2 1px;border-left: solid #8DB3E2 1px;"><b style="font-size: 10pt;">홈페이지</b></td>
+				<td style="width:300px;border-right: solid #8DB3E2 1px;border-top: solid #8DB3E2 1px;font-size: 10pt;"><div style="margin-left:6px;">www.koscom.co.kr</div></td>
+				<td  align="center" style="width:101px;background-color:#C6D9F1;border-right: solid #8DB3E2 1px;border-top: solid #8DB3E2 1px;"><b style="font-size: 10pt;">검사 일자</b></td>
+				<td align="center" style="width:160px;border-top: solid #8DB3E2 1px;border-right: solid #8DB3E2 1px;font-size: 10pt;">2017&#xb144; 07&#xc6d4; 20&#xc77c;</td>
+			</tr>
+			<tr>
+				<td align="center" style="background-color:#C6D9F1;height: 30px;border-right: solid #8DB3E2 1px;border-top: solid #8DB3E2 1px;border-left: solid #8DB3E2 1px;"><b style="font-size: 10pt;">대상 주소(수)</b></td>
+				<td colspan='3' style="width:483px;border-top: solid #8DB3E2 1px;border-right: solid #8DB3E2 1px;">
+					<div>
+                    <p style="font-size: 10pt;margin: 8px;">www.koscom.co.kr(20)</p>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td align="center" style="background-color:#C6D9F1;height: 30px;border-right: solid #8DB3E2 1px;border-bottom: solid #8DB3E2 1px;border-top: solid #8DB3E2 1px;border-left: solid #8DB3E2 1px;"><b style="font-size: 10pt;">검사 기준</b></td>
+				<td colspan='3' style="border-bottom: solid #8DB3E2 1px;font-size:10pt;border-top: solid #8DB3E2 1px;border-right: solid #8DB3E2 1px;"><div style="margin-left:6px;">한국형 웹 콘텐츠 접근성 지침(KWCAG 2.1)</div></td>
+			</tr>
+		</table>
+		
+		<table cellpadding="0" cellspacing="0" border="0" style="width: 600px;margin-top: 25px;border-collapse:collapse; margin-left:15px;">
+			<tr style="height: 43px;border-bottom:solid 1px #8DB3E2;border-top:solid 1px #8DB3E2;">
+				<td align="center" style="width:45px ;background-color:#C6D9F1;height: 26px;border-left: none;"><b style="font-size:11pt">No</b></td>
+				<td align="center" colspan="2" style="width:180px ;background-color:#C6D9F1;border-left:solid 1px #8DB3E2;"><b style="font-size:11pt">항 목</b></td>
+				<td align="center" style="width:90px ;background-color:#C6D9F1;border-left:solid 1px #8DB3E2;"><b style="font-size:11pt">검사 방법</b></td>
+				<td align="center" style="width:100px ;background-color:#C6D9F1;border-left:solid 1px #8DB3E2;"><b style="font-size:11pt">검사 수</b></br><b style="font-size:9pt">(준수/총 대상)</b></td>
+				<td align="center" style="width: ;background-color:#C6D9F1;border-right: none;border-left:solid 1px #8DB3E2;"><b style="font-size:11pt">준수율</b></td>
+			</tr>
+
+			<tr class="sky" style="border-bottom:solid 1px #8DB3E2;">
+				<td align="center" style="font-size:8pt;height: 23px;border-left: none;">1</td>
+				<td align="left" style="border-left:solid 1px #8DB3E2;" colspan="2"><div style="margin-left: 8px;"><font style="font-size:8pt;">&#xc801;&#xc808;&#xd55c; &#xb300;&#xccb4; &#xd14d;&#xc2a4;&#xd2b8; &#xc81c;&#xacf5;</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;"><div style="margin-left:4px;"><font style="font-size:8pt;">&#xc790; + &#xc801;</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;"><div><font style="font-size:8pt;">326/326</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;border-right: none;"><div><font style="font-size:8pt;">100.0</font></div></td>
+			</tr>
+
+			<tr class="sky dimmed" style="border-bottom:solid 1px #8DB3E2;">
+				<td align="center" style="font-size:8pt;height: 23px;border-left: none;">2</td>
+				<td align="left" style="border-left:solid 1px #8DB3E2;" colspan="2"><div style="margin-left: 8px;"><font style="font-size:8pt;">&#xc790;&#xb9c9; &#xc81c;&#xacf5;</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;"><div style="margin-left:4px;"><font style="font-size:8pt;">&#xc218;</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;"><div><font style="font-size:8pt;">-/-</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;border-right: none;"><div><font style="font-size:8pt;">-</font></div></td>
+			</tr>
+
+			<tr class="dimmed" style="border-bottom:solid 1px #8DB3E2;">
+				<td align="center" style="font-size:8pt;height: 23px;border-left: none;">3</td>
+				<td align="left" style="border-left:solid 1px #8DB3E2;" colspan="2"><div style="margin-left: 8px;"><font style="font-size:8pt;">&#xc0c9;&#xc5d0; &#xbb34;&#xad00;&#xd55c; &#xcf58;&#xd150;&#xce20; &#xc778;&#xc2dd;</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;"><div style="margin-left:4px;"><font style="font-size:8pt;">&#xc218;</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;"><div><font style="font-size:8pt;">-/-</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;border-right: none;"><div><font style="font-size:8pt;">-</font></div></td>
+			</tr>
+
+			<tr class="dimmed" style="border-bottom:solid 1px #8DB3E2;">
+				<td align="center" style="font-size:8pt;height: 23px;border-left: none;">4</td>
+				<td align="left" style="border-left:solid 1px #8DB3E2;" colspan="2"><div style="margin-left: 8px;"><font style="font-size:8pt;">&#xba85;&#xd655;&#xd55c; &#xc9c0;&#xc2dc;&#xc0ac;&#xd56d; &#xc81c;&#xacf5;</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;"><div style="margin-left:4px;"><font style="font-size:8pt;">&#xc218;</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;"><div><font style="font-size:8pt;">-/-</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;border-right: none;"><div><font style="font-size:8pt;">-</font></div></td>
+			</tr>
+
+			<tr class="dimmed" style="border-bottom:solid 1px #8DB3E2;">
+				<td align="center" style="font-size:8pt;height: 23px;border-left: none;">5</td>
+				<td align="left" style="border-left:solid 1px #8DB3E2;" colspan="2"><div style="margin-left: 8px;"><font style="font-size:8pt;">&#xd14d;&#xc2a4;&#xd2b8; &#xcf58;&#xd150;&#xce20;&#xc758; &#xba85;&#xb3c4; &#xb300;&#xbe44;</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;"><div style="margin-left:4px;"><font style="font-size:8pt;">&#xc218;</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;"><div><font style="font-size:8pt;">-/-</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;border-right: none;"><div><font style="font-size:8pt;">-</font></div></td>
+			</tr>
+
+			<tr class="dimmed" style="border-bottom:solid 1px #8DB3E2;">
+				<td align="center" style="font-size:8pt;height: 23px;border-left: none;">6</td>
+				<td align="left" style="border-left:solid 1px #8DB3E2;" colspan="2"><div style="margin-left: 8px;"><font style="font-size:8pt;">&#xc790;&#xb3d9; &#xc7ac;&#xc0dd; &#xae08;&#xc9c0;</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;"><div style="margin-left:4px;"><font style="font-size:8pt;">&#xc218;</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;"><div><font style="font-size:8pt;">-/-</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;border-right: none;"><div><font style="font-size:8pt;">-</font></div></td>
+			</tr>
+
+			<tr class="dimmed" style="border-bottom:solid 1px #8DB3E2;">
+				<td align="center" style="font-size:8pt;height: 23px;border-left: none;">7</td>
+				<td align="left" style="border-left:solid 1px #8DB3E2;" colspan="2"><div style="margin-left: 8px;"><font style="font-size:8pt;">&#xcf58;&#xd150;&#xce20; &#xac04;&#xc758; &#xad6c;&#xbd84;</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;"><div style="margin-left:4px;"><font style="font-size:8pt;">&#xc218;</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;"><div><font style="font-size:8pt;">-/-</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;border-right: none;"><div><font style="font-size:8pt;">-</font></div></td>
+			</tr>
+
+			<tr class="dimmed" style="border-bottom:solid 1px #8DB3E2;">
+				<td align="center" style="font-size:8pt;height: 23px;border-left: none;">8</td>
+				<td align="left" style="border-left:solid 1px #8DB3E2;" colspan="2"><div style="margin-left: 8px;"><font style="font-size:8pt;">&#xd0a4;&#xbcf4;&#xb4dc; &#xc0ac;&#xc6a9; &#xbcf4;&#xc7a5;</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;"><div style="margin-left:4px;"><font style="font-size:8pt;">&#xc218;</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;"><div><font style="font-size:8pt;">-/-</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;border-right: none;"><div><font style="font-size:8pt;">-</font></div></td>
+			</tr>
+
+			<tr class="dimmed" style="border-bottom:solid 1px #8DB3E2;">
+				<td align="center" style="font-size:8pt;height: 23px;border-left: none;">9</td>
+				<td align="left" style="border-left:solid 1px #8DB3E2;" colspan="2"><div style="margin-left: 8px;"><font style="font-size:8pt;">&#xcd08;&#xc810; &#xc774;&#xb3d9;</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;"><div style="margin-left:4px;"><font style="font-size:8pt;">&#xc790; + &#xc218;</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;"><div><font style="font-size:8pt;">-/-</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;border-right: none;"><div><font style="font-size:8pt;">-</font></div></td>
+			</tr>
+
+			<tr class="dimmed" style="border-bottom:solid 1px #8DB3E2;">
+				<td align="center" style="font-size:8pt;height: 23px;border-left: none;">10</td>
+				<td align="left" style="border-left:solid 1px #8DB3E2;" colspan="2"><div style="margin-left: 8px;"><font style="font-size:8pt;">&#xc870;&#xc791; &#xac00;&#xb2a5;</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;"><div style="margin-left:4px;"><font style="font-size:8pt;">&#xc218;</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;"><div><font style="font-size:8pt;">-/-</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;border-right: none;"><div><font style="font-size:8pt;">-</font></div></td>
+			</tr>
+
+			<tr class="dimmed" style="border-bottom:solid 1px #8DB3E2;">
+				<td align="center" style="font-size:8pt;height: 23px;border-left: none;">11</td>
+				<td align="left" style="border-left:solid 1px #8DB3E2;" colspan="2"><div style="margin-left: 8px;"><font style="font-size:8pt;">&#xc751;&#xb2f5;&#xc2dc;&#xac04; &#xc870;&#xc808;</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;"><div style="margin-left:4px;"><font style="font-size:8pt;">&#xc218;</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;"><div><font style="font-size:8pt;">-/-</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;border-right: none;"><div><font style="font-size:8pt;">-</font></div></td>
+			</tr>
+
+			<tr class="dimmed" style="border-bottom:solid 1px #8DB3E2;">
+				<td align="center" style="font-size:8pt;height: 23px;border-left: none;">12</td>
+				<td align="left" style="border-left:solid 1px #8DB3E2;" colspan="2"><div style="margin-left: 8px;"><font style="font-size:8pt;">&#xc815;&#xc9c0; &#xae30;&#xb2a5; &#xc81c;&#xacf5;</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;"><div style="margin-left:4px;"><font style="font-size:8pt;">&#xc218;</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;"><div><font style="font-size:8pt;">-/-</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;border-right: none;"><div><font style="font-size:8pt;">-</font></div></td>
+			</tr>
+
+			<tr class="dimmed" style="border-bottom:solid 1px #8DB3E2;">
+				<td align="center" style="font-size:8pt;height: 23px;border-left: none;">13</td>
+				<td align="left" style="border-left:solid 1px #8DB3E2;" colspan="2"><div style="margin-left: 8px;"><font style="font-size:8pt;">&#xae5c;&#xbc15;&#xc784;&#xacfc; &#xbc88;&#xca4d;&#xc784; &#xc0ac;&#xc6a9; &#xc81c;&#xd55c;</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;"><div style="margin-left:4px;"><font style="font-size:8pt;">&#xc218;</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;"><div><font style="font-size:8pt;">-/-</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;border-right: none;"><div><font style="font-size:8pt;">-</font></div></td>
+			</tr>
+
+			<tr class="dimmed" style="border-bottom:solid 1px #8DB3E2;">
+				<td align="center" style="font-size:8pt;height: 23px;border-left: none;">14</td>
+				<td align="left" style="border-left:solid 1px #8DB3E2;" colspan="2"><div style="margin-left: 8px;"><font style="font-size:8pt;">&#xbc18;&#xbcf5; &#xc601;&#xc5ed; &#xac74;&#xb108;&#xb6f0;&#xae30;</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;"><div style="margin-left:4px;"><font style="font-size:8pt;">&#xc790; + &#xc218;</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;"><div><font style="font-size:8pt;">-/-</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;border-right: none;"><div><font style="font-size:8pt;">-</font></div></td>
+			</tr>
+
+			<tr class="" style="border-bottom:solid 1px #8DB3E2;">
+				<td align="center" style="font-size:8pt;height: 23px;border-left: none;">15</td>
+				<td align="left" style="border-left:solid 1px #8DB3E2;" colspan="2"><div style="margin-left: 8px;"><font style="font-size:8pt;">&#xc81c;&#xbaa9; &#xc81c;&#xacf5;</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;"><div style="margin-left:4px;"><font style="font-size:8pt;">&#xc790;</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;"><div><font style="font-size:8pt;">20/20</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;border-right: none;"><div><font style="font-size:8pt;">100.0</font></div></td>
+			</tr>
+
+			<tr class="dimmed" style="border-bottom:solid 1px #8DB3E2;">
+				<td align="center" style="font-size:8pt;height: 23px;border-left: none;">16</td>
+				<td align="left" style="border-left:solid 1px #8DB3E2;" colspan="2"><div style="margin-left: 8px;"><font style="font-size:8pt;">&#xc801;&#xc808;&#xd55c; &#xb9c1;&#xd06c; &#xd14d;&#xc2a4;&#xd2b8;</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;"><div style="margin-left:4px;"><font style="font-size:8pt;">&#xc790; + &#xc801;</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;"><div><font style="font-size:8pt;">-/-</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;border-right: none;"><div><font style="font-size:8pt;">-</font></div></td>
+			</tr>
+
+			<tr class="" style="border-bottom:solid 1px #8DB3E2;">
+				<td align="center" style="font-size:8pt;height: 23px;border-left: none;">17</td>
+				<td align="left" style="border-left:solid 1px #8DB3E2;" colspan="2"><div style="margin-left: 8px;"><font style="font-size:8pt;">&#xae30;&#xbcf8; &#xc5b8;&#xc5b4; &#xd45c;&#xc2dc;</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;"><div style="margin-left:4px;"><font style="font-size:8pt;">&#xc790;</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;"><div><font style="font-size:8pt;">20/20</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;border-right: none;"><div><font style="font-size:8pt;">100.0</font></div></td>
+			</tr>
+
+			<tr class="dimmed" style="border-bottom:solid 1px #8DB3E2;">
+				<td align="center" style="font-size:8pt;height: 23px;border-left: none;">18</td>
+				<td align="left" style="border-left:solid 1px #8DB3E2;" colspan="2"><div style="margin-left: 8px;"><font style="font-size:8pt;">&#xc0ac;&#xc6a9;&#xc790; &#xc694;&#xad6c;&#xc5d0; &#xb530;&#xb978; &#xc2e4;&#xd589;</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;"><div style="margin-left:4px;"><font style="font-size:8pt;">&#xc790; + &#xc218;</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;"><div><font style="font-size:8pt;">-/-</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;border-right: none;"><div><font style="font-size:8pt;">-</font></div></td>
+			</tr>
+
+			<tr class="dimmed" style="border-bottom:solid 1px #8DB3E2;">
+				<td align="center" style="font-size:8pt;height: 23px;border-left: none;">19</td>
+				<td align="left" style="border-left:solid 1px #8DB3E2;" colspan="2"><div style="margin-left: 8px;"><font style="font-size:8pt;">&#xcf58;&#xd150;&#xce20;&#xc758; &#xc120;&#xd615; &#xad6c;&#xc870;</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;"><div style="margin-left:4px;"><font style="font-size:8pt;">&#xc218;</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;"><div><font style="font-size:8pt;">-/-</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;border-right: none;"><div><font style="font-size:8pt;">-</font></div></td>
+			</tr>
+
+			<tr class="sky" style="border-bottom:solid 1px #8DB3E2;">
+				<td align="center" style="font-size:8pt;height: 23px;border-left: none;">20</td>
+				<td align="left" style="border-left:solid 1px #8DB3E2;" colspan="2"><div style="margin-left: 8px;"><font style="font-size:8pt;">&#xd45c;&#xc758; &#xad6c;&#xc131;</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;"><div style="margin-left:4px;"><font style="font-size:8pt;">&#xc790; + &#xc801;</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;"><div><font style="font-size:8pt;">45/45</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;border-right: none;"><div><font style="font-size:8pt;">100.0</font></div></td>
+			</tr>
+
+			<tr class="sky" style="border-bottom:solid 1px #8DB3E2;">
+				<td align="center" style="font-size:8pt;height: 23px;border-left: none;">21</td>
+				<td align="left" style="border-left:solid 1px #8DB3E2;" colspan="2"><div style="margin-left: 8px;"><font style="font-size:8pt;">&#xb808;&#xc774;&#xbe14; &#xc81c;&#xacf5;</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;"><div style="margin-left:4px;"><font style="font-size:8pt;">&#xc790;</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;"><div><font style="font-size:8pt;">50/50</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;border-right: none;"><div><font style="font-size:8pt;">100.0</font></div></td>
+			</tr>
+
+			<tr class="dimmed" style="border-bottom:solid 1px #8DB3E2;">
+				<td align="center" style="font-size:8pt;height: 23px;border-left: none;">22</td>
+				<td align="left" style="border-left:solid 1px #8DB3E2;" colspan="2"><div style="margin-left: 8px;"><font style="font-size:8pt;">&#xc624;&#xb958; &#xc815;&#xc815;</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;"><div style="margin-left:4px;"><font style="font-size:8pt;">&#xc218;</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;"><div><font style="font-size:8pt;">-/-</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;border-right: none;"><div><font style="font-size:8pt;">-</font></div></td>
+			</tr>
+
+			<tr class="" style="border-bottom:solid 1px #8DB3E2;">
+				<td align="center" style="font-size:8pt;height: 23px;border-left: none;">23</td>
+				<td align="left" style="border-left:solid 1px #8DB3E2;" colspan="2"><div style="margin-left: 8px;"><font style="font-size:8pt;">&#xb9c8;&#xd06c;&#xc5c5; &#xc624;&#xb958; &#xbc29;&#xc9c0;</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;"><div style="margin-left:4px;"><font style="font-size:8pt;">&#xc790; + &#xc801;</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;"><div><font style="font-size:8pt;">20/20</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;border-right: none;"><div><font style="font-size:8pt;">100.0</font></div></td>
+			</tr>
+
+			<tr class="dimmed" style="border-bottom:solid 1px #8DB3E2;">
+				<td align="center" style="font-size:8pt;height: 23px;border-left: none;">24</td>
+				<td align="left" style="border-left:solid 1px #8DB3E2;" colspan="2"><div style="margin-left: 8px;"><font style="font-size:8pt;">&#xc6f9; &#xc5b4;&#xd50c;&#xb9ac;&#xcf00;&#xc774;&#xc158; &#xc811;&#xadfc;&#xc131; &#xc900;&#xc218;</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;"><div style="margin-left:4px;"><font style="font-size:8pt;">&#xc218;</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;"><div><font style="font-size:8pt;">-/-</font></div></td>
+				<td align="center" style="border-left:solid 1px #8DB3E2;border-right: none;"><div><font style="font-size:8pt;">-</font></div></td>
+			</tr>
+
+		</table>
+		<p style="font-size:8pt;margin-bottom: -20px;margin-left: 40px;">자:자동검사 / 수:수동검사 / 적:적절성수동검사<p><br>
+		<!--p style="text-align: right;margin-right: 97px;margin-top: 21px;"><span style='font-size:14pt;font-family:"HY견고딕","serif"; color:#014099;'><font>종합 준수율 :</font><font style="margin-left: 30px;">100.0%</font></span></p-->
+	<div style="text-align:center;width: 634px;border-bottom: 1px solid #8DB3E2;margin-bottom:0px"></div>
+    <p>&nbsp;&nbsp;&nbsp;※ 안내사항</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp; - 본 보고서는 A=CoolCheck! 검사결과 보고서 입니다.<!--A=CoolCheck!(v1.19,Demo) &#xac80;&#xc0ac;&#xacb0;&#xacfc; &#xbcf4;&#xace0;&#xc11c;--></p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp; - KWCAG2.1 지침 중 기계적으로 자동 검사가 가능한 6개 항목에 대한 결과만을 제공합니다.</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp; - 검사항목 중 "23.마크업 오류 방지"의 준수율은 대상 페이지수 대비 준수 페이지수의 비율로 계산됩니다.</p>
+    </div>
+</div>
+</body>
+</html>
