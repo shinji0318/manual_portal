@@ -1,0 +1,1918 @@
+#-----------------------------------------------------------------------
+#
+#   cyberir.properties : 시스템
+#
+#-----------------------------------------------------------------------
+#   1.  key=value 구조입니다.
+#   2.  key값은 공백문자를 포함불가, value값은 공백문자를 가능
+#   3.  key값으로 한글을 사용불가,   value값은 한글사용이 가능
+#   4.  줄을 바꿀 필요가 있으면 '\'를 라인의 끝에 추가(만약  '\'문자를 사용해야 하는 경우는 '\\'를 사용)
+#   5.  Windows에서의 디렉토리 표시 : '\\' or '/'  ('\' 사용하면 안됨)
+#   6.  Unix에서의 디렉토리 표시 : '/'
+#   7.  주석문 처리는  #사용
+#   8.  value값 뒤에 스페이스가 존재하는 경우 서블릿에서 참조할때는 에러발생할 수 있으므로 trim()하거나 마지막 공백없이 properties 값을 설정할것
+#   9.  value는 , 를 사용할 수 없다. (egov 기본 프로퍼티 로드 클래스에서 , 이후는 읽지 않음) ==> | (pipeline) 기호를 사용할 것.
+#-----------------------------------------------------------------------
+
+#---------------------------------------------------
+#Test
+#---------------------------------------------------
+AAAA=12345678
+BBBB=abcd\
+efgh
+
+# cyberir_batch 에서 사용 (장 시간 정보 파일명)
+Cyberir.file.name.jangTime=jang_time_f
+# 배치 읽는 간격
+Cyberir.batch.interval=1000
+
+#유가증권 종목 코드 (TEST용)
+Cyberir.codemap.kse.test=\
+066575:KR7066571001|005930:KR7005930003|029780:KR7029780004|018260:KR7018260000
+
+#코스닥 종목 코드 (TEST용)
+Cyberir.codemap.ksd.test=\
+052260:KR7052260007|019660:KR7019660000|040350:KR7040350001
+
+#유가증권 종목 코드 simpleCode:stdCode
+Cyberir.codemap.kse=\
+136490:KR7136490000|000725:KR7000721001|006405:KR7006401004|066570:KR7066570003|001745:KR7001741008|\
+004560:KR7004560009|000720:KR7000720003|000150:KR7000150003|029780:KR7029780004|018260:KR7018260000|\
+001740:KR7001740000|143460:KR7143460004|015360:KR7015360001|010140:KR7010140002|014790:KR7014790000|\
+005880:KR7005880000|012330:KR7012330007|030000:KR7030000004|005935:KR7005931001|005930:KR7005930003|\
+011160:KR7011160009|017670:KR7017670001|003550:KR7003550001|010120:KR7010120004|066575:KR7066571001|\
+004020:KR7004020004|130660:KR7130660004|005870:KR7005870001|018670:KR7018670000|093050:KR7093050003|\
+032830:KR7032830002|028260:KR7028260008|000815:KR7000811000|042670:KR7042670000|086280:KR7086280005|\
+000810:KR7000810002|009155:KR7009151002|170900:KR7170900005|028050:KR7028050003|015350:KR7015350002|\
+010145:KR7010141000|009150:KR7009150004|104520:KR7104520002|011070:KR7011070000|001510:KR7001510007|\
+034020:KR7034020008|017940:KR7017940008|006400:KR7006400006|034220:KR7034220004|011210:KR7011210002|\
+001120:KR7001120005|001515:KR7001511005|108675:KR7108671009|051900:KR7051900009|055550:KR7055550008|\
+015760:KR7015760002|108670:KR7108670001|051905:KR7051901007|000660:KR7000660001|004450:KR7004450003|\
+012750:KR7012750006|064350:KR7064350002|011790:KR7011790003|000270:KR7000270009|008770:KR7008770000|\
+034730:KR7034730002|000640:KR7000640003|000500:KR7000500009|032640:KR7032640005|035000:KR7035000009|\
+006120:KR7006120000|003555:KR7003551009|006260:KR7006260004|006125:KR7006121008|\
+001500:KR7001500008|005380:KR7005380001|051910:KR7051910008|096770:KR7096770003|005385:KR7005381009|\
+096775:KR7096771001|004565:KR7004561007|005389:KR7005383005|016360:KR7016360000|008775:KR7008771008|\
+005387:KR7005382007|051915:KR7051911006|004000:KR7004000006|241560:KR7241560002|210980:KR7210980009|\
+02826K:KR702826K016|207940:KR7207940008|214320:KR7214320004|03473K:KR703473K016|285130:KR7285130001|\
+103130:KR7103130001|272450:KR7272450008|091810:KR7091810002|030200:KR7030200000|298690:KR7298690009
+
+#코스닥 종목 코드 simpleCode:stdCode
+Cyberir.codemap.ksd=\
+052260:KR7052260007|040350:KR7040350001|057500:KR7057500001|010470:KR7010470003|108320:KR7108320003|\
+067280:KR7067280008|060570:KR7060570009|036420:KR7036420008|051780:KR7051780005|007820:KR7007820004|\
+035480:KR7035480003|019550:KR7019550003|237690:KR7237690003|112240:KR7112240007|036490:KR7036490001|\
+007720:KR7007720006
+
+Cyberir.codemap.index=kse:KOSPI|ksd:KOSDAQ|k200:KOSPI200
+
+Cyberir.codemap.indexMarketBit=\
+kse:1|kseMedic:1|k200:1|k200w:1|kseChemicals:1|kseMachinery:1|kseCirculation:1|kseInsurance:1|\
+ksd:2|ksdit:2|ksd150:2|\
+krx100:5
+Cyberir.codemap.indexUpCode=\
+kse:1|kseMedic:9|k200:51|k200w:401|kseChemicals:8|kseMachinery:12|kseCirculation:16|kseInsurance:25|\
+ksd:1|ksdit:15|ksd150:203|\
+krx100:1
+Cyberir.codemap.indexMbUcToCode=\
+1+1:kse|1+9:kseMedic|1+401:k200w|1+8:kseChemicals|1+12:kseMachinery|1+16:kseCirculation|1+25:kseInsurance|\
+2+1:ksd|2+15:ksdit|2+203:ksd150|\
+5+1:krx100
+
+#20181129 추가
+#ETF KRX채권지수 코드
+Cyberir.codemap.etf.kis=\
+MSBI03|CORP01|MSBI09|KTBI10|KTBL10
+
+#ETF 국내기타지수 코드
+Cyberir.codemap.etf.etc=\
+60038|60039|60066|64303
+
+#데이터 유형별 대상 파일명
+Cyberir.file.namemap=\
+companyInfo:ci_daily_f|\
+big4:ci_daily_f|\
+stockMasterKse:ksejong_master_f|\
+stockMasterKsd:ksdjong_master_f|\
+kse:kse_indexs_f|\
+kseg:kse_indexg_f|\
+ksd:ksd_indexs_f|\
+ksdg:ksd_indexg_f|\
+k200:k200_indexs_f|\
+k200g:k200_indexg_f|\
+k200w:k200_weight_f|\
+krx100:iur_krx100s_f|\
+ksdit:ksd_ksdits_f|\
+batch:index_batch_f|\
+kseup:kse_index_f|\
+ksdup:ksd_index_f|\
+exchange:ci_sisemem2_f|\
+exchangeRate:real_exchange_f|\
+exchangeRateByKEB:ci_time1_f|\
+exchangeRateByCountry:ci_sisemem2_f|\
+exchangeRateBuySell:ci_time1_f|\
+foreignIndex:ci_sisemem1_f|\
+bond3YInterest:ci_time1_f|\
+moneyRateAtTradeDate:ci_time2_f|\
+moneyRate:ci_time2_f|\
+globalgold:ci_daily_f|\
+CALL:ci_time2_f|\
+KUK3:ci_time2_f|\
+KUK5:ci_time2_f|\
+COM3:ci_time2_f|\
+HAN3:ci_time2_f|\
+KUK10:ci_time2_f|\
+KUK20:ci_time2_f|\
+CDS:ci_time1_f|\
+LAST1:ci_time2_f|\
+future:futjong_master_f|\
+commodity:ci_sisemem1_f|\
+LIB@USD03M:ci_time2_f|\
+LIB@USD06M:ci_sisemem1_f|\
+US05Y:real_exchange_f|\
+US10Y:real_exchange_f|\
+rawMat:ci_daily_f
+
+#kostar:iur_kostars_f|\
+
+#NYM@CL:ci_sisemem1_f|\
+#SPT@DU:ci_sisemem1_f|\
+#IPE@EB:ci_sisemem1_f|\
+#LME@CDY:ci_sisemem1_f|\
+#NYM@QL:ci_sisemem1_f|\
+
+# ####################################################################################################################
+# 구 권한 체계
+#-----------------------------------------------------------------------------------------------------------------
+# 1,         2,       3,         4,      5,   6,      7,        8,              9,    10,   11,       12
+# 종목정보,  거래소,  거래소200, 코스닥, Q50, KRX100, 해외지수, 환율/금리 종가, 금리, 환율, 업종코드, 업종비트
+#-----------------------------------------------------------------------------------------------------------------
+# datamall.cyberircorpmainpageurl.028150.1.kor=/cyberir/corpMainInner/gshs/cyberir_main.jsp
+# datamall.cyberir.mainPageInfo.028150.1=true|true|false|true|false|false|false|false|false|false|-1|-1
+# ####################################################################################################################
+# 신 권한 체계                                                                                  20170323 jwahn, jsshin
+# ====================================================================================================================
+# [1] Web Page JSP Path        : Cyberir.url.{custId}.{pagePart}.{lang}=/cyberir/corpMainInner/...
+#                                * {custId}는 siteName 또는 simpleCode를 사용        (ex) shinhan, jknews, 005930, 000660, ... Cyberir.auth.dailyCode.006260.7
+# ---------------------------- : -------------------------------------------------------------------------------------
+# [2] Authorization-Main     : Cyberir.auth.${custId}.{pagePart}={authName}|{authName}|...
+# ---------------------------- : -------------------------------------------------------------------------------------
+# [3] Authorization-Detail   : Cyberir.auth.{authDetail}.{custId}.{pagePart}=${authCode}|${authCode}|...
+# ---------------------------- : -------------------------------------------------------------------------------------
+#                              :   {authName}             {authDetail}              {authCode}
+#                              : -------------------------------------------------------------------------------------
+#                   종목(현재) :    stock              ==> simpleCode            ==> 000660, 005930, ...
+#               국내지수(현재) :    korIndex           ==> korIndexCode          ==> kse, ksd, k200, krx100
+#               국내지수(일별) :    korIndexDaily      ==> korIndexCode          ==> (")
+#             국내지수(업종별) :    korIndexUp         ==> korIndexUpCode        ==> 16:1, ...
+#
+#               해외지수(현재) :    forIndex           ==> forIndexCode          ==> DJI@DJI, NAX@IXIC, ...
+#                   금리(현재) :    rate               ==> rateCode              ==> LAST7, LAST3, globalgold, ...
+#LAST1국고채1년|LAST3국고채3년|LAST4국고채5년|LAST7회사채AA-|LAST99CD91일
+#                   환율(현재) :    exchange           ==> exchangeCode          ==> USD, JPY, EUR, CNY, ...
+#       환율(외환은행고시환율) :    exchangeByKEB      ==> (n/a)
+#       환율(외환은행고시환율) :    exchangeHistoryByKEB ==> (n/a)
+#               환율(기준국가) :    exchangeByCountry  ==> exchangeCode          ==> CNY, INR
+#               환율(사고팔때) :    exchangeBuySell    ==> exchangeCode          ==> USD, JPY, EUR, CNY
+#                상품(석유 등) :    commodity          ==> commodityCode         ==> SPT@DU, NSE, NYM@CL, ...
+#                 원자재(현재) :    rawMat             ==> rawMatCode            ==> MCD, MAD, MND, ...
+#                 원자재(일별) :    rawMatDaily        ==> rawMatCode            ==> MCD, MAD, MND, ...
+#
+#       국내지수(K200동일가중) :    k200w              ==> (n/a)
+
+#        기타(LG 4대그룹 요약) :    lgBig4             ==> (n/a)
+#		국고채1년 LAST1 // 국고채3년 LAST3 // 국고채5년 LAST4 // 회사채3년AA LAST7 // CD91일 LAST99  //
+#####################################################################################################################
+
+## NEW CUSTOMER / HERE ##
+
+###################################################################################
+# 에어부산 (20190129) 신규 custId=airbusan
+###################################################################################
+Cyberir.url.stock.airbusan.1.kor=/cyberir/formatted/current_value
+Cyberir.url.time.airbusan.1.kor=/cyberir/formatted/time_value
+Cyberir.url.daily.airbusan.1.kor=/cyberir/formatted/daily_chart_value
+Cyberir.url.index.airbusan.1.kor=/cyberir/formatted/indexinfo_graph
+Cyberir.url.notice.airbusan.1.kor=/cyberir/formatted/notice
+Cyberir.url.foreign.airbusan.1.kor=/cyberir/formatted/foreigner_info
+Cyberir.auth.airbusan.1=stock
+Cyberir.auth.simpleCode.airbusan.1=298690
+
+###################################################################################
+#대명코퍼레이션 20181218 custId=daemyung
+###################################################################################
+Cyberir.url.stock.daemyung.1.kor=/cyberir/formatted2/current_value
+Cyberir.url.time.daemyung.1.kor=/cyberir/formatted2/time_value
+Cyberir.url.daily.daemyung.1.kor=/cyberir/formatted2/daily_chart_value
+Cyberir.url.index.daemyung.1.kor=/cyberir/formatted2/indexinfo_graph
+Cyberir.url.notice.daemyung.1.kor=/cyberir/formatted2/notice
+Cyberir.url.foreign.daemyung.1.kor=/cyberir/formatted2/foreigner_info
+Cyberir.auth.daemyung.1=stock
+Cyberir.auth.simpleCode.daemyung.1=007720
+
+###################################################################################
+#더비즈니스(XML)/한국증권신문
+###################################################################################
+Cyberir.url.thebusiness.1.kor=/cyberir/corpMainInner/thebusiness/cyberir_main
+Cyberir.auth.thebusiness.1=korIndex
+Cyberir.auth.korIndexCode.thebusiness.1=kse|ksd|k200
+#더비즈니스(html) 20181024 위와 동일한 곳인지?
+Cyberir.url.thebusiness.html.kor=/cyberir/corpMainInner/thebusiness/index_html
+Cyberir.auth.thebusiness.html=korIndex
+Cyberir.auth.korIndexCode.thebusiness.html=kse|ksd|k200
+#더비즈니스(html, new) 20181213
+Cyberir.url.thebusiness.html_new.kor=/cyberir/corpMainInner/thebusiness/index_html_new
+Cyberir.auth.thebusiness.html_new=korIndex
+Cyberir.auth.korIndexCode.thebusiness.html_new=kse|ksd|k200
+#20190103
+Cyberir.url.thebusiness.banner.kor=/cyberir/corpMainInner/thebusiness/banner
+Cyberir.auth.thebusiness.banner=korIndex
+Cyberir.auth.korIndexCode.thebusiness.banner=kse|ksd|k200
+
+###################################################################################
+#kb자산운용 20181206 /cyberir/main.do?custId=kbam&pagePart=index
+###################################################################################
+Cyberir.url.kbam.index.kor=/cyberir/corpMainInner/kbam2/index_xml
+Cyberir.auth.kbam.index=forIndex
+Cyberir.auth.forIndexCode.kbam.index=M1CN
+
+###################################################################################
+#아주경제 20181126
+###################################################################################
+Cyberir.url.ajunews.1.kor=/cyberir/corpMainInner/ajunews/index_xml
+Cyberir.auth.ajunews.1=korIndex
+Cyberir.auth.korIndexCode.ajunews.1=kse|ksd|k200
+#cyberir.koscom.co.kr/cyberir/main.do?custId=ajunews
+
+###################################################################################
+#탄소배출권 20180417 20181126 한국생산성본부kpc 에코시안ecosian 한국남동발전koenergy
+# 1) http://cyberir.koscom.co.kr/cyberir/main.do?custId=koenergy
+# 2) http://cyberir.koscom.co.kr/cyberir/main.do?custId=koenergy&emiCode=05102180
+# 3) http://cyberir.koscom.co.kr/cyberir/main.do?custId=koenergy&emiCode=05102180&sDate=20181201&eDate=20181231
+###################################################################################
+Cyberir.url.koenergy.1.kor=/cyberir/corpMainInner/koenergy/emission_current
+Cyberir.auth.koenergy.1=emission
+#cyberir.koscom.co.kr/cyberir/main.do?custId=koenergy&pagePart=current
+#Cyberir.url.koenergy.daily.kor=/cyberir/corpMainInner/koenergy/emissio#n_daily
+#Cyberir.auth.koenergy.daily=emission
+
+###################################################################################
+# 스카이데일리 skydaily
+###################################################################################
+Cyberir.url.skydaily.1.kor=/cyberir/corpMainInner/skydaily/index_xml
+Cyberir.auth.skydaily.1=korIndex
+Cyberir.auth.korIndexCode.skydaily.1=kse|ksd|k200
+
+###################################################################################
+# 티웨이항공 twayair 091810
+###################################################################################
+Cyberir.url.twayair.ir01.kor=/cyberir/corpMainInner/twayair/ir_01_stock
+#Cyberir.url.daily.twayair.ir01.kor=/cyberir/corpMainInner/twayair/current_chart_only
+Cyberir.auth.twayair.ir01=stock|korIndex
+Cyberir.auth.korIndexCode.twayair.ir01=kse|ksd
+Cyberir.url.notice.twayair.ir02.kor=/cyberir/corpMainInner/twayair/ir_02_notice
+Cyberir.auth.simpleCode.twayair.ir01=091810
+Cyberir.auth.simpleCode.twayair.ir02=091810
+
+###################################################################################
+# 티웨이항공(리뉴얼) twayair 20190320
+###################################################################################
+Cyberir.url.twayair.ir01_new.kor=/cyberir/corpMainInner/twayair/ir_01_stock_new
+#Cyberir.url.daily.twayair.ir01_new.kor=/cyberir/corpMainInner/twayair/current_chart_only_new
+Cyberir.auth.twayair.ir01_new=stock|korIndex
+Cyberir.auth.korIndexCode.twayair.ir01_new=kse|ksd
+Cyberir.url.notice.twayair.ir02_new.kor=/cyberir/corpMainInner/twayair/ir_02_notice_new
+#for test at dev server
+Cyberir.auth.simpleCode.twayair.ir01_new=091810
+Cyberir.auth.simpleCode.twayair.ir02_new=091810
+
+###################################################################################
+# 금융감독원(fss) stock.koscom.co.kr 페이지 이전
+###################################################################################
+### ASIS URL ###
+#stock.koscom.co.kr/index/koscomindex.xml
+#stock.koscom.co.kr/index/kospi_tickhist.xml
+#stock.koscom.co.kr/index/kosdaq_tickhist.xml
+Cyberir.url.intra.index.fss.kospi.kor=/cyberir/corpMainInner/fss/index_intra_xml_kse
+Cyberir.auth.intraCode.fss.kospi=kse
+Cyberir.url.intra.index.fss.kosdaq.kor=/cyberir/corpMainInner/fss/index_intra_xml_ksd
+Cyberir.auth.intraCode.fss.kosdaq=ksd
+
+### TOBE 설정 ###
+Cyberir.url.fss.total.kor=/cyberir/corpMainInner/fss/index_xml
+Cyberir.auth.fss.total=korIndex|korIndexUp|future|rate|exchange
+Cyberir.auth.korIndexCode.fss.total=kse|ksd|k200|krx100
+Cyberir.auth.korIndexUpCode.fss.total=15:2
+Cyberir.auth.rateCode.fss.total=LAST3|LAST4|LAST7|LAST99
+Cyberir.auth.exchangeCode.fss.total=USD|JPY|EUR
+
+### 테스트용 설정 ###
+#Cyberir.auth.fss.total=korIndexUp
+#Cyberir.auth.korIndexCode.fss.total=kse|ksd
+#Cyberir.auth.korIndexUpCode.fss.total=25:1|15:2
+
+#금성인베스트(goldstarinvest) 20180313 테스트 20180626 Closed
+#Cyberir.url.goldstarinvest.1.kor=/cyberir/corpMainInner/goldstarinvest/index_xml
+#Cyberir.auth.goldstarinvest.1=korIndex|exchange
+#Cyberir.auth.korIndexCode.goldstarinvest.1=kse|ksd|k200
+#Cyberir.auth.exchangeCode.goldstarinvest.1=USD
+
+##인사이트(insight) 20180222 테스트
+Cyberir.url.insight.1.kor=/cyberir/corpMainInner/insight/index_xml
+Cyberir.auth.insight.1=korIndex
+Cyberir.auth.korIndexCode.insight.1=kse|ksd|k200
+#20180302 지수 일중
+Cyberir.url.intra.index.insight.kospi.kor=/cyberir/corpMainInner/insight/index_intra_xml_kse
+Cyberir.auth.intraCode.insight.kospi=kse
+Cyberir.url.intra.index.insight.kosdaq.kor=/cyberir/corpMainInner/insight/index_intra_xml_ksd
+Cyberir.auth.intraCode.insight.kosdaq=ksd
+Cyberir.url.intra.index.insight.kospi200.kor=/cyberir/corpMainInner/insight/index_intra_xml_k200
+Cyberir.auth.intraCode.insight.kospi200=k200
+#20180302 지수 일별
+Cyberir.url.daily.index.insight.kospi.kor=/cyberir/corpMainInner/insight/index_daily_xml_kse
+Cyberir.auth.dailyCode.insight.kospi=kse
+Cyberir.url.daily.index.insight.kosdaq.kor=/cyberir/corpMainInner/insight/index_daily_xml_ksd
+Cyberir.auth.dailyCode.insight.kosdaq=ksd
+Cyberir.url.daily.index.insight.kospi200.kor=/cyberir/corpMainInner/insight/index_daily_xml_k200
+Cyberir.auth.dailyCode.insight.kospi200=k200
+
+##에스에프씨(SFC) 112240 20180131 opened 20181130 closed
+#Cyberir.url.sfc.currentXml.kor=/cyberir/corpMainInner/sfc/currentXml
+#Cyberir.url.sfc.currentChart.kor=/cyberir/corpMainInner/sfc/currentChart
+#Cyberir.url.daily.sfc.dailyXml.kor=/cyberir/corpMainInner/sfc/dailyXml
+#Cyberir.url.daily.sfc.dailyChart.kor=/cyberir/corpMainInner/sfc/dailyChart
+#Cyberir.auth.sfc.currentXml=korIndex|stock
+#Cyberir.auth.korIndexCode.sfc.currentXml=kse|ksd
+#Cyberir.auth.simpleCode.sfc.currentXml=112240
+#Cyberir.auth.simpleCode.sfc.dailyXml=112240
+
+##서울증권방송 (20180115)
+Cyberir.url.seoulstock.1.kor=/cyberir/corpMainInner/seoulstock/index_xml
+Cyberir.auth.seoulstock.1=korIndex
+Cyberir.auth.korIndexCode.seoulstock.1=kse|ksd|k200
+
+##웅진에너지 (20180112) 계약 유효, 이전 누락, 사용현황 파악 안됨 103130
+Cyberir.url.stock.woongjinenergy.1.kor=/cyberir/formatted/current_value
+Cyberir.url.time.woongjinenergy.1.kor=/cyberir/formatted/time_value
+Cyberir.url.daily.woongjinenergy.1.kor=/cyberir/formatted/daily_chart_value
+Cyberir.url.index.woongjinenergy.1.kor=/cyberir/formatted/indexinfo_graph
+Cyberir.url.notice.woongjinenergy.1.kor=/cyberir/formatted/notice
+Cyberir.url.foreign.woongjinenergy.1.kor=/cyberir/formatted/foreigner_info
+Cyberir.auth.woongjinenergy.1=stock
+Cyberir.auth.simpleCode.woongjinenergy.1=103130
+
+##선진 (20180109) 계약 유효, 이전 누락 136490
+Cyberir.url.stock.sunjin.1.kor=/cyberir/formatted/current_value
+Cyberir.url.time.sunjin.1.kor=/cyberir/formatted/time_value
+Cyberir.url.daily.sunjin.1.kor=/cyberir/formatted/daily_chart_value
+Cyberir.url.index.sunjin.1.kor=/cyberir/formatted/indexinfo_graph
+Cyberir.url.notice.sunjin.1.kor=/cyberir/formatted/notice
+Cyberir.url.foreign.sunjin.1.kor=/cyberir/formatted/foreigner_info
+Cyberir.auth.sunjin.1=stock
+Cyberir.auth.simpleCode.sunjin.1=136490
+
+
+##LF Corp (20180109) 이전 누락
+Cyberir.url.stock.lf.1.kor=/cyberir/formatted/current_value
+Cyberir.auth.lf.1=stock
+Cyberir.auth.simpleCode.lf.1=093050
+
+##진에어 (2017122) 신규 jinair
+Cyberir.url.stock.jinair.1.kor=/cyberir/formatted/current_value
+Cyberir.url.time.jinair.1.kor=/cyberir/formatted/time_value
+Cyberir.url.daily.jinair.1.kor=/cyberir/formatted/daily_chart_value
+Cyberir.url.index.jinair.1.kor=/cyberir/formatted/indexinfo_graph
+Cyberir.url.notice.jinair.1.kor=/cyberir/formatted/notice
+Cyberir.url.foreign.jinair.1.kor=/cyberir/formatted/foreigner_info
+Cyberir.auth.jinair.1=stock
+Cyberir.auth.simpleCode.jinair.1=272450
+
+#테스트 20171207
+Cyberir.url.test.1.kor=/cyberir/corpMainInner/_test/index_xml
+Cyberir.auth.test.1=korIndex
+Cyberir.auth.korIndexCode.test.1=kse|ksd|k200
+#|ksd|k200
+
+#월스트리트코리아
+Cyberir.url.wallstreetkorea.1.kor=/cyberir/corpMainInner/wallstreetkorea/xml
+Cyberir.auth.wallstreetkorea.1=korIndex
+Cyberir.auth.korIndexCode.wallstreetkorea.1=kse|k200|ksd
+
+#Cyberir 공시 20170912
+Cyberir.url.notice.check.1.kor=/cyberir/corpMainInner/check/notice
+Cyberir.auth.noticeCode.check.1=check
+
+#경제투데이(XML) TODO graphUrl // 20170911 jwahn del
+#Cyberir.url.eto.1.kor=/cyberir/corpMainInner/eto/cyberir_main
+#Cyberir.auth.eto.1=korIndex|forIndex|rate|exchange
+#Cyberir.auth.korIndexCode.eto.1=kse|k200|ksd|krx100
+#Cyberir.auth.forIndexCode.eto.1=DJI@DJI|NAS@IXIC|SPI@SPX|SPI@SPOEX|HSI@HSI
+#Cyberir.auth.exchangeCode.eto.1=USD|JPY|EUR
+#Cyberir.auth.rateCode.eto.1=LAST7|LAST3|globalgold
+
+#경향닷컴1 // 20170911 jwahn del
+#Cyberir.url.khan.1.kor=/cyberir/corpMainInner/khan/cyberir_main
+#Cyberir.auth.khan.1=korIndex|forIndex|exchange
+#Cyberir.auth.korIndexCode.khan.1=kse|ksd
+#Cyberir.auth.forIndexCode.khan.1=DJI@DJI|NAS@IXIC
+#Cyberir.auth.exchangeCode.khan.1=USD|JPY
+
+#경향닷컴2 // 20170911 jwahn del
+#Cyberir.url.khan.2.kor=/cyberir/corpMainInner/khan/cyberir_main2
+#Cyberir.auth.khan.2=korIndex|forIndex|exchange
+#Cyberir.auth.korIndexCode.khan.2=kse|ksd
+#Cyberir.auth.forIndexCode.khan.2=DJI@DJI|NAS@IXIC
+#Cyberir.auth.exchangeCode.khan.2=USD|JPY
+
+#경향닷컴5(XML)
+Cyberir.url.khan.5.kor=/cyberir/corpMainInner/khan/cyberir_main5
+Cyberir.auth.khan.5=korIndex|forIndex|exchange
+Cyberir.auth.korIndexCode.khan.5=kse|ksd
+Cyberir.auth.forIndexCode.khan.5=DJI@DJI|NAS@IXIC
+Cyberir.auth.exchangeCode.khan.5=USD|JPY
+
+#고려시멘트-이미지
+
+#금융투자협회(XML) 8/8 jwahn -> stock.koscom.co.kr의 고객
+#Cyberir.url.kofia.1.kor=/cyberir/corpMainInner/kofia/cyberir_main_new
+#Cyberir.auth.kofia.1=korIndex|rate|exchange
+#Cyberir.auth.korIndexCode.kofia.1=kse|ksd|ksdit|k200|krx100|k200future|KUK5|COM3|CD91|USD|JPY|EUR
+
+#[007]~[016] 기획재정부 ==> 자체 URL 별도 관리
+#http://cyberirtest.koscom.co.kr/mosf/forBondKind.do
+#http://cyberirtest.koscom.co.kr/mosf/nationBondTrade.do
+#http://cyberirtest.koscom.co.kr/mosf/forBondKindAsk.do
+#http://cyberirtest.koscom.co.kr/mosf/forKtbTrade.do
+#http://cyberirtest.koscom.co.kr/mosf/forKtbAcc.do
+#http://cyberirtest.koscom.co.kr/mosf/forBondKindEng.do
+#http://cyberirtest.koscom.co.kr/mosf/nationBondTradeEng.do
+#http://cyberirtest.koscom.co.kr/mosf/forBondKindAskEng.do
+#http://cyberirtest.koscom.co.kr/mosf/forKtbTradeEng.do
+#http://cyberirtest.koscom.co.kr/mosf/forKtbAccEng.do
+
+#그린경제뉴스(XML) // 20170911 jwahn del
+#Cyberir.url.greennews.1.kor=/cyberir/corpMainInner/greennews/cyberir_main
+#Cyberir.auth.greennews.1=korIndex|exchange
+#Cyberir.auth.korIndexCode.greennews.1=kse|k200|ksd
+#Cyberir.auth.exchangeCode.greennews.1=USD|JPY
+
+#뉴스투데이
+
+#대한해운
+Cyberir.auth.005880.1=stock
+Cyberir.url.005880.1.kor=/cyberir/corpMainInner/korlines/cyberir_main
+Cyberir.url.stock.005880.1.kor=/cyberir/formatted/current_value
+Cyberir.url.time.005880.1.kor=/cyberir/formatted/time_value
+Cyberir.url.daily.005880.1.kor=/cyberir/formatted/daily_chart_value
+Cyberir.url.index.005880.1.kor=/cyberir/formatted/indexinfo_graph
+Cyberir.url.notice.005880.1.kor=/cyberir/formatted/notice
+Cyberir.url.foreign.005880.1.kor=/cyberir/formatted/foreigner_info
+
+Cyberir.url.005880.1.eng=/cyberir/corpMainInner/korlines/cyberir_main
+Cyberir.url.stock.005880.1.eng=/cyberir/formatted/eng/current_value
+Cyberir.url.time.005880.1.eng=/cyberir/formatted/eng/time_value
+Cyberir.url.daily.005880.1.eng=/cyberir/formatted/eng/daily_chart_value
+Cyberir.url.index.005880.1.eng=/cyberir/formatted/eng/indexinfo_graph
+Cyberir.url.notice.005880.1.eng=/cyberir/formatted/eng/notice
+Cyberir.url.foreign.005880.1.eng=/cyberir/formatted/eng/foreigner_info
+
+#동아제약-영문 // 20170911 jwahn del
+#Cyberir.url.000640.1.eng=/cyberir/corpMainInner/donga/e_cyberir_main
+#Cyberir.auth.000640.1=stock
+
+#동아ST(=동아에스티)-영문 // 20170911 jwahn del
+#Cyberir.url.170900.2.eng=/cyberir/corpMainInner/donga/e_cyberir_main2
+#Cyberir.auth.170900.2=stock
+#Cyberir.auth.simpleCode.170900.2=000640|170900
+
+#[021].1~9 동아ST(동아에스티)
+Cyberir.url.stock.170900.1.kor=/cyberir/formatted/current_value
+Cyberir.url.time.170900.1.kor=/cyberir/formatted/time_value
+Cyberir.url.daily.170900.1.kor=/cyberir/formatted/daily_chart_value
+Cyberir.url.index.170900.1.kor=/cyberir/formatted/indexinfo_graph
+Cyberir.url.notice.170900.1.kor=/cyberir/formatted/notice
+Cyberir.url.foreign.170900.1.kor=/cyberir/formatted/foreigner_info
+#Cyberir.url.rate.170900.1.kor=/cyberir/formatted/money_rate
+#Cyberir.url.exchange.170900.1.kor=/cyberir/formatted/exchange_rate
+
+Cyberir.url.stock.170900.1.eng=/cyberir/formatted/eng/current_value
+Cyberir.url.time.170900.1.eng=/cyberir/formatted/eng/time_value
+Cyberir.url.daily.170900.1.eng=/cyberir/formatted/eng/daily_chart_value
+Cyberir.url.index.170900.1.eng=/cyberir/formatted/eng/indexinfo_graph
+Cyberir.url.notice.170900.1.eng=/cyberir/formatted/eng/notice
+Cyberir.url.foreign.170900.1.eng=/cyberir/formatted/eng/foreigner_info
+#Cyberir.url.rate.170900.1.eng=/cyberir/formatted/eng/money_rate
+#Cyberir.url.exchange.170900.1.eng=/cyberir/formatted/eng/exchange_rate
+Cyberir.auth.170900.1=stock
+
+#[022].1~9 동아쏘시오홀딩스
+Cyberir.url.stock.000640.1.kor=/cyberir/formatted/current_value
+Cyberir.url.time.000640.1.kor=/cyberir/formatted/time_value
+Cyberir.url.daily.000640.1.kor=/cyberir/formatted/daily_chart_value
+Cyberir.url.index.000640.1.kor=/cyberir/formatted/indexinfo_graph
+Cyberir.url.notice.000640.1.kor=/cyberir/formatted/notice
+Cyberir.url.foreign.000640.1.kor=/cyberir/formatted/foreigner_info
+#Cyberir.url.rate.000640.1.kor=/cyberir/formatted/money_rate
+#Cyberir.url.exchange.000640.1.kor=/cyberir/formatted/exchange_rate
+
+Cyberir.url.stock.000640.1.eng=/cyberir/formatted/eng/current_value
+Cyberir.url.time.000640.1.eng=/cyberir/formatted/eng/time_value
+Cyberir.url.daily.000640.1.eng=/cyberir/formatted/eng/daily_chart_value
+Cyberir.url.index.000640.1.eng=/cyberir/formatted/eng/indexinfo_graph
+Cyberir.url.notice.000640.1.eng=/cyberir/formatted/eng/notice
+Cyberir.url.foreign.000640.1.eng=/cyberir/formatted/eng/foreigner_info
+#Cyberir.url.rate.000640.1.eng=/cyberir/formatted/eng/money_rate
+#Cyberir.url.exchange.000640.1.eng=/cyberir/formatted/eng/exchange_rate
+Cyberir.auth.000640.1=stock
+
+#[023].1~9 에스티팜
+Cyberir.url.stock.237690.1.kor=/cyberir/formatted/current_value
+Cyberir.url.time.237690.1.kor=/cyberir/formatted/time_value
+Cyberir.url.daily.237690.1.kor=/cyberir/formatted/daily_chart_value
+Cyberir.url.index.237690.1.kor=/cyberir/formatted/indexinfo_graph
+Cyberir.url.notice.237690.1.kor=/cyberir/formatted/notice
+Cyberir.url.foreign.237690.1.kor=/cyberir/formatted/foreigner_info
+#Cyberir.url.rate.237690.1.kor=/cyberir/formatted/money_rate
+#Cyberir.url.exchange.237690.1.kor=/cyberir/formatted/exchange_rate
+
+Cyberir.url.stock.237690.1.eng=/cyberir/formatted/eng/current_value
+Cyberir.url.time.237690.1.eng=/cyberir/formatted/eng/time_value
+Cyberir.url.daily.237690.1.eng=/cyberir/formatted/eng/daily_chart_value
+Cyberir.url.index.237690.1.eng=/cyberir/formatted/eng/indexinfo_graph
+Cyberir.url.notice.237690.1.eng=/cyberir/formatted/eng/notice
+Cyberir.url.foreign.237690.1.eng=/cyberir/formatted/eng/foreigner_info
+#Cyberir.url.rate.237690.1.eng=/cyberir/formatted/eng/money_rate
+#Cyberir.url.exchange.237690.1.eng=/cyberir/formatted/eng/exchange_rate
+Cyberir.auth.237690.1=stock
+
+#동아그룹-요약(XML)
+Cyberir.url.000640.3.kor=/cyberir/corpMainInner/donga/cyberir_main
+Cyberir.auth.000640.3=stock|korIndex|exchange
+Cyberir.auth.korIndexCode.000640.3=kse|ksd
+Cyberir.auth.simpleCode.000640.3=000640|170900|237690
+Cyberir.auth.exchangeCode.000640.3=USD|EUR|JPY|CNY|BRL
+
+
+#두산1-종목
+Cyberir.url.000150.1.kor=/cyberir/corpMainInner/doosan/cyberir_main1
+Cyberir.auth.000150.1=stock|korIndex
+Cyberir.auth.korIndexCode.000150.1=kse
+Cyberir.auth.simpleCode.000150.1=000150|042670|034020|011160|004450|010470
+
+#두산2-환율(XML)
+Cyberir.url.000150.2.kor=/cyberir/corpMainInner/doosan/cyberir_main2
+Cyberir.auth.000150.2=exchange
+Cyberir.auth.exchangeCode.000150.2=USD|EUR|JPY|CNY
+
+#두산3-유가(XML)
+Cyberir.url.000150.3.kor=/cyberir/corpMainInner/doosan/cyberir_main3
+Cyberir.auth.000150.3=commodity
+Cyberir.auth.commodityCode.000150.3=SPT@DU
+
+#두산4-KOSPI추이(XML) TODO
+Cyberir.url.daily.index.000150.4.kor=/cyberir/corpMainInner/doosan/cyberir_main4
+Cyberir.auth.dailyCode.000150.4=kse
+#Cyberir.url.000150.4.kor=/cyberir/corpMainInner/doosan/cyberir_main4
+#Cyberir.auth.000150.4=korIndexDaily
+#Cyberir.auth.korIndexCode.000150.4=kse
+
+#두산5-종목추이(XML)
+Cyberir.url.daily.000150.5.kor=/cyberir/corpMainInner/doosan/cyberir_main5
+Cyberir.auth.dailyCode.000150.5=000150|042670|034020|011160|004450|010470
+
+#[030].1 [030].2 두산건설-현재가,일자별,차트분석(X)
+Cyberir.url.stock.011160.1.kor=/cyberir/corpMainInner/doosanenc/current_value
+Cyberir.url.daily.011160.1.kor=/cyberir/corpMainInner/doosanenc/daily_chart_value
+#[029][030] 두산건설17,18
+Cyberir.url.011160.ticker.kor=/cyberir/corpMainInner/doosanenc/cyberir_main
+Cyberir.url.011160.ticker.eng=/cyberir/corpMainInner/doosanenc/eng/cyberir_main
+Cyberir.auth.011160.ticker=stock
+
+#두산엔진(XML) -> HSD엔진으로 변경 20180920 jwahn 삭제
+#Cyberir.url.082740.1.kor=/cyberir/corpMainInner/doosanbu/cyberir_main10
+#Cyberir.auth.082740.1=stock
+
+#[032]~[049] 두산인프라코어-해지
+
+#[050]~[056] 두산정보통신1~7 (7만 유효한 페이지인 것으로 추측)
+#Cyberir.url.042670.15.kor=/cyberir/corpMainInner/doosanbu/cyberir_main
+#Cyberir.url.042670.16.kor=/cyberir/corpMainInner/doosanbu/cyberir_main2
+#Cyberir.url.042670.17.kor=/cyberir/corpMainInner/doosanbu/cyberir_main3
+Cyberir.url.042670.18.kor=/cyberir/corpMainInner/doosanbu/cyberir_main4
+Cyberir.auth.042670.18=korIndex|stock|exchange|forIndex
+Cyberir.auth.korIndexCode.042670.18=kse|ksd
+Cyberir.auth.simpleCode.042670.18=000150|034020|042670|241560|011160|010470
+Cyberir.auth.forIndexCode.042670.18=DJI@DJI|NAS@IXIC|SPI@SPX|LNS@FTSE100|NII@NI225|SHS@000001|HSI@HSI|HSI@HSCE
+Cyberir.auth.exchangeCode.042670.18=USD|EUR|GBP|JPY|CNY|HKD
+
+#Cyberir.url.042670.19.kor=/cyberir/corpMainInner/doosanbu/cyberir_main5
+#Cyberir.url.042670.21.kor=/cyberir/corpMainInner/doosanbu/cyberir_main6
+Cyberir.url.042670.22.kor=/cyberir/corpMainInner/doosanbu/cyberir_main7
+Cyberir.auth.042670.22=korIndex|stock|exchange|forIndex
+Cyberir.auth.korIndexCode.042670.22=kse|ksd
+Cyberir.auth.simpleCode.042670.22=000150|034020|042670|241560|011160|010470
+Cyberir.auth.forIndexCode.042670.22=DJI@DJI|NAS@IXIC|SPI@SPX|LNS@FTSE100|NII@NI225|SHS@000001|HSI@HSI|HSI@HSCE
+Cyberir.auth.exchangeCode.042670.22=USD|EUR|GBP|JPY|CNY|HKD
+#두산|두산중공업|두산인프라코어|두산밥캣|두산건설|두산엔진|오리콤 ??004450
+#다우존스|나스닥|S&P500|영국FTSE100|닛케이225|상하이종합|항셍|홍콩H지수
+#미국USD|EUR|GBP|100JPY|1CNY|HKD
+
+#[057].0 [057].1 두산중공업-기본형(국문,영문)
+Cyberir.url.034020.1.kor=/cyberir/corpMainInner/doosanheavy/current_value
+Cyberir.url.034020.1.eng=/cyberir/corpMainInner/doosanheavy/eng/current_value
+Cyberir.auth.034020.1=stock
+
+#[057].01 [057].11 두산중공업-기본형(국문SUB,영문SUB)
+Cyberir.url.034020.2.kor=/cyberir/corpMainInner/doosanheavy/current_value1
+Cyberir.url.034020.2.eng=/cyberir/corpMainInner/doosanheavy/eng/current_value1
+Cyberir.auth.034020.2=korIndex|korIndexUp
+Cyberir.auth.korIndexCode.034020.2=kse|ksd
+Cyberir.auth.korIndexUpCode.034020.2=12:1
+
+#[057].2 [057].3 두산중공업-시간대별(국문,영문)
+Cyberir.url.time.034020.1.kor=/cyberir/corpMainInner/doosanheavy/time_value
+Cyberir.url.time.034020.1.eng=/cyberir/corpMainInner/doosanheavy/eng/time_value
+
+#[057].4 [057].5 두산중공업-일자별(국문,영문)
+Cyberir.url.daily.034020.1.kor=/cyberir/corpMainInner/doosanheavy/daily_chart_value
+Cyberir.url.daily.034020.1.eng=/cyberir/corpMainInner/doosanheavy/eng/daily_chart_value
+
+#[057].6 [057].7 두산중공업-시장동향(국문,영문)
+Cyberir.url.034020.3.kor=/cyberir/corpMainInner/doosanheavy/cyberir_main3
+Cyberir.url.034020.3.eng=/cyberir/corpMainInner/doosanheavy/eng/cyberir_main
+Cyberir.auth.034020.3=stock|korIndex|korIndexUp|forIndex|exchange|exchangeByCountry|rate|
+Cyberir.auth.korIndexCode.034020.3=kse|k200|ksd
+Cyberir.auth.korIndexUpCode.034020.3=12:1
+Cyberir.auth.forIndexCode.034020.3=DJI@DJI|NAS@IXIC|SPI@SPX|NII@NI225|LNS@FTSE100
+Cyberir.auth.exchangeCode.034020.3=USD
+#|JPY|EUR|GBP|CAD
+Cyberir.auth.exchangeCode.034020.3=USD
+Cyberir.auth.rateCode.034020.3=CALL|LAST99|LAST7|LAST3|LAST4
+
+#두산중공업
+Cyberir.url.034020.4.kor=/cyberir/corpMainInner/doosanheavy/cyberir_main4
+Cyberir.auth.034020.4=stock|korIndex
+Cyberir.auth.korIndexCode.034020.4=kse
+
+#두산중공업2
+Cyberir.url.034020.5.kor=/cyberir/corpMainInner/doosanheavy/cyberir_main5
+Cyberir.auth.034020.5=stock|korIndex|exchange
+Cyberir.auth.korIndexCode.034020.5=kse
+Cyberir.auth.exchangeCode.034020.5=USD|EUR|GBP|JPY|CNY
+
+#두산중공업3
+Cyberir.url.034020.6.kor=/cyberir/corpMainInner/doosanheavy/cyberir_main6
+Cyberir.auth.034020.6=stock|korIndex|exchange|forIndex
+Cyberir.auth.korIndexCode.034020.6=kse
+Cyberir.auth.exchangeCode.034020.6=USD|EUR|GBP|JPY|CNY
+Cyberir.auth.forIndexCode.034020.6=DJI@DJI|NAS@IXIC|SPI@SPX|NII@NI225
+
+#동성그룹 및 계열사 정보 20180331 계약 해지
+#동성그룹-요약
+#Cyberir.url.dongsung.1.kor=/cyberir/corpMainInner/dongsung/cyberir_main
+#Cyberir.auth.dongsung.1=stock|korIndex|exchange|rate
+#Cyberir.auth.korIndexCode.dongsung.1=kse|ksd
+#Cyberir.auth.simpleCode.dongsung.1=102260|005190|033500
+#Cyberir.auth.exchangeCode.dongsung.1=USD|JPY|EUR|CNY|HKD
+#Cyberir.auth.rateCode.dongsung.1=LAST3|LAST7|LAST99|CALL|HAN3
+##Cyberir.auth.rateCode.dongsung.1=KUK3|COM3|LAST99|CALL|HAN3
+#동성그룹-xml 20171222
+#Cyberir.url.dongsung.xml.kor=/cyberir/corpMainInner/dongsung/xml_20171222
+#Cyberir.auth.dongsung.xml=stock|korIndex|exchange|rate
+#Cyberir.auth.korIndexCode.dongsung.xml=kse|ksd|k200
+#Cyberir.auth.simpleCode.dongsung.xml=102260|005190|033500
+#Cyberir.auth.exchangeCode.dongsung.xml=USD|JPY|EUR|CNY|HKD
+#Cyberir.auth.rateCode.dongsung.xml=LAST3|LAST7|LAST99|CALL|HAN3
+#[062]+ 동성그룹-지수
+#Cyberir.url.index.dongsung.1.kor=/cyberir/formatted/indexinfo_graph
+#[062]+ 동성그룹-환율
+##Cyberir.url.exchange.102260.1.kor=/cyberir/formatted/exchange_rate
+#[062]+ 동성그룹-금리
+##Cyberir.url.rate.102260.1.kor=/cyberir/formatted/money_rate
+#[062]+ 동성그룹-동성코퍼레이션(현재가,시간대별,일자별,공시) 102260
+#Cyberir.url.stock.102260.1.kor=/cyberir/corpMainInner/dongsung/current_value
+#Cyberir.url.time.102260.1.kor=/cyberir/corpMainInner/dongsung/time_value
+#Cyberir.url.daily.102260.1.kor=/cyberir/corpMainInner/dongsung/daily_chart_value
+#Cyberir.url.notice.102260.1.kor=/cyberir/corpMainInner/dongsung/notice
+#[062]+ 동성그룹-동성화학(현재가,시간대별,일자별,공시) 005190
+#Cyberir.url.stock.005190.1.kor=/cyberir/corpMainInner/dongsung/current_value
+#Cyberir.url.time.005190.1.kor=/cyberir/corpMainInner/dongsung/time_value
+#Cyberir.url.daily.005190.1.kor=/cyberir/corpMainInner/dongsung/daily_chart_value
+#Cyberir.url.notice.005190.1.kor=/cyberir/corpMainInner/dongsung/notice
+#[062]+ 동성그룹-동성화인텍(현재가,시간대별,일자별,공시) 033500
+#Cyberir.url.stock.033500.1.kor=/cyberir/corpMainInner/dongsung/current_value
+#Cyberir.url.time.033500.1.kor=/cyberir/corpMainInner/dongsung/time_value
+#Cyberir.url.daily.033500.1.kor=/cyberir/corpMainInner/dongsung/daily_chart_value
+#Cyberir.url.notice.033500.1.kor=/cyberir/corpMainInner/dongsung/notice
+
+#롯데그룹 20171115 해지
+#[064]~[071] 롯데그룹-모바일(롯데쇼핑,롯데케미칼,롯데제과,롯데칠성음료,롯데푸드(삼강),롯데손해보험,현대정보기술,롯데하이마트)
+#Cyberir.url.stock.023530.3.kor=/cyberir/corpMainInner/lotte/mobile/current_value
+#Cyberir.url.stock.011170.3.kor=/cyberir/corpMainInner/lotte/mobile/current_value
+#Cyberir.url.stock.004990.3.kor=/cyberir/corpMainInner/lotte/mobile/current_value
+#Cyberir.url.stock.005300.3.kor=/cyberir/corpMainInner/lotte/mobile/current_value
+#Cyberir.url.stock.002270.3.kor=/cyberir/corpMainInner/lotte/mobile/current_value
+#Cyberir.url.stock.000400.3.kor=/cyberir/corpMainInner/lotte/mobile/current_value
+#Cyberir.url.stock.026180.3.kor=/cyberir/corpMainInner/lotte/mobile/current_value
+#Cyberir.url.stock.071840.3.kor=/cyberir/corpMainInner/lotte/mobile/current_value
+
+#[072]~[080],[081]~[089] 롯데그룹(롯데쇼핑,롯데케미칼,롯데제과,롯데칠성음료,롯데푸드(삼강),롯데손해보험,현대정보기술,롯데하이마트)(국문,영문)
+#롯데그룹(롯데쇼핑)
+#Cyberir.auth.023530.1=stock
+#Cyberir.url.023530.1.kor=/cyberir/corpMainInner/lotte/cyberir_main
+#Cyberir.url.023530.1.eng=/cyberir/corpMainInner/lotte/eng/cyberir_main
+#롯데그룹(롯데케미칼)
+#Cyberir.auth.011170.1=stock
+#Cyberir.url.011170.1.kor=/cyberir/corpMainInner/lotte/cyberir_main
+#Cyberir.url.011170.1.eng=/cyberir/corpMainInner/lotte/eng/cyberir_main
+#롯데그룹(롯데제과)
+#Cyberir.auth.004990.1=stock
+#Cyberir.url.004990.1.kor=/cyberir/corpMainInner/lotte/cyberir_main
+#Cyberir.url.004990.1.eng=/cyberir/corpMainInner/lotte/eng/cyberir_main
+#롯데그룹(롯데칠성음료)
+#Cyberir.auth.005300.1=stock
+#Cyberir.url.005300.1.kor=/cyberir/corpMainInner/lotte/cyberir_main
+#Cyberir.url.005300.1.eng=/cyberir/corpMainInner/lotte/eng/cyberir_main
+#롯데그룹(롯데푸드(삼강))
+#Cyberir.auth.002270.1=stock
+#Cyberir.url.002270.1.kor=/cyberir/corpMainInner/lotte/cyberir_main
+#Cyberir.url.002270.1.eng=/cyberir/corpMainInner/lotte/eng/cyberir_main
+#롯데그룹(롯데손해보험)
+#Cyberir.auth.000400.1=stock
+#Cyberir.url.000400.1.kor=/cyberir/corpMainInner/lotte/cyberir_main
+#Cyberir.url.000400.1.eng=/cyberir/corpMainInner/lotte/eng/cyberir_main
+#롯데그룹(현대정보기술)
+#Cyberir.auth.026180.1=stock
+#Cyberir.url.026180.1.kor=/cyberir/corpMainInner/lotte/cyberir_main
+#Cyberir.url.026180.1.eng=/cyberir/corpMainInner/lotte/eng/cyberir_main
+#롯데그룹(롯데하이마트)
+#Cyberir.auth.071840.1=stock
+#Cyberir.url.071840.1.kor=/cyberir/corpMainInner/lotte/cyberir_main
+#Cyberir.url.071840.1.eng=/cyberir/corpMainInner/lotte/eng/cyberir_main
+
+#리얼타임즈 20170629 서비스 종료
+#Cyberir.url.realtimes.1.kor=/cyberir/corpMainInner/realtimes/cyberir_main
+#Cyberir.auth.realtimes.1=korIndex|forIndex|rate|exchange
+#Cyberir.auth.korIndexCode.realtimes.1=kse|ksd|k200|krx100
+#Cyberir.auth.forIndexCode.realtimes.1=DJI@DJI|NAS@IXIC|SPI@SPX|SPI@SPOEX|HSI@HSI
+#Cyberir.auth.exchangeCode.realtimes.1=USD|JPY|EUR
+#Cyberir.auth.rateCode.realtimes.1=LAST3|LAST7
+
+#해지
+
+#미래에셋_kospi200동일가중(XML)
+Cyberir.url.miraeasset.1.kor=/cyberir/corpMainInner/miraeasset/cyberir_main
+Cyberir.auth.miraeasset.1=k200w
+
+#미래에셋자산운용 NSE 인도지수(XML) -> NITFY50 20170907
+Cyberir.url.miraeasset.2.kor=/cyberir/corpMainInner/miraeasset/nifty50
+Cyberir.auth.miraeasset.2=commodity
+Cyberir.auth.commodityCode.miraeasset.2=NSE
+
+# 미래에셋 ETF
+Cyberir.auth.etf.miraeasset=A139320|A130680|A137610|A139310|A157450|A160580
+# 우리투자 ETF
+Cyberir.auth.etf.wooriam=A104520|A104530|A143460|A148070|A167860
+# 키움자산운용 ETF
+Cyberir.auth.etf.kiwoomam=A104520|A104530|A130730|A167860|A138230
+# KB자산운용 ETF 20181129 사용 확인
+Cyberir.auth.etf.kbam=A136340|A196230
+# ../tigerEtf.do
+
+#미래주식-해지
+Cyberir.url.miraestock.1.kor=/cyberir/corpMainInner/miraestock/cyberir_main
+Cyberir.auth.miraestock.1=korIndex|exchange|rate
+Cyberir.auth.korIndexCode.miraestock.1=kse|ksd|k200
+Cyberir.auth.exchangeCode.miraestock.1=USD|CNY|JPY|HKD|EUR|GBP
+Cyberir.auth.rateCode.miraestock.1=LAST99|LAST3|CALL|LAST7
+
+#부전투자금융-환율(XML) 20170629 서비스 종료
+#Cyberir.url.bujun.1.kor=/cyberir/corpMainInner/bujun/cyberir_main
+#Cyberir.auth.bujun.1=exchange
+#Cyberir.auth.exchangeCode.bujun.1=USD|EUR|JPY
+
+#부전투자금융-해외(XML) 20170629 서비스 종료
+#Cyberir.url.bujun.2.kor=/cyberir/corpMainInner/bujun/cyberir_main2
+#Cyberir.auth.bujun.2=forIndex
+#Cyberir.auth.forIndexCode.bujun.2=DJI@DJI|NAS@IXIC|SHS@000001|NII@NI225|HSI@HSI|LNS@FTSE100
+
+#부전투자금융-국내(XML) 20170629 서비스 종료
+#Cyberir.url.bujun.3.kor=/cyberir/corpMainInner/bujun/cyberir_main3
+#Cyberir.auth.bujun.3=korIndex
+#Cyberir.auth.korIndexCode.bujun.3=kse|ksd
+
+#################################################################
+##                                                             ##
+##                          삼성생명                           ##
+##                                                             ##
+#################################################################
+
+#1&3. 기본형  (구) [107] 삼성생명-기본형2(현재가)(국문/영문)
+Cyberir.url.samsunglife.1.kor=/cyberir/corpMainInner/samsunglife/current_value
+Cyberir.url.samsunglife.1.eng=/cyberir/corpMainInner/samsunglife/eng/current_value
+Cyberir.auth.samsunglife.1=stock|korIndexUp|korIndex
+Cyberir.auth.simpleCode.samsunglife.1=032830
+Cyberir.auth.korIndexCode.samsunglife.1=kse|ksd
+Cyberir.auth.korIndexUpCode.samsunglife.1=25:1
+#2&4. 일자별  (구) [107.1] 삼성생명-기본형2(일자별)(국문/영문)
+Cyberir.url.daily.samsunglife.1.kor=/cyberir/corpMainInner/samsunglife/daily_chart_value
+Cyberir.url.daily.samsunglife.1.eng=/cyberir/corpMainInner/samsunglife/eng/daily_chart_value
+Cyberir.auth.dailyCode.samsunglife.1=032830
+#5. 공시  (구) [109] 삼성생명-공시
+Cyberir.url.notice.samsunglife.1.kor=/cyberir/corpMainInner/samsunglife/notice
+Cyberir.auth.noticeCode.samsunglife.1=032830
+#6&7. 요약1  (구) [111] 삼성생명6
+Cyberir.url.samsunglife.2.kor=/cyberir/corpMainInner/samsunglife/cyberir_main2
+Cyberir.url.samsunglife.2.eng=/cyberir/corpMainInner/samsunglife/eng/cyberir_main2
+Cyberir.auth.samsunglife.2=stock|korIndex
+Cyberir.auth.simpleCode.samsunglife.2=032830
+Cyberir.auth.korIndexCode.samsunglife.2=kse|ksd
+#8. 요약2  (구) [116] 삼성생명10
+Cyberir.url.samsunglife.3.kor=/cyberir/corpMainInner/samsunglife/cyberir_main3
+Cyberir.auth.samsunglife.3=stock
+Cyberir.auth.simpleCode.samsunglife.3=032830
+#9~14. 삭제
+#15. 퇴직연금 - 퇴직연금 상품  (구) [113] 삼성생명8
+Cyberir.url.samsunglife.4.kor=/cyberir/corpMainInner/samsunglife/cyberir_main4
+Cyberir.auth.samsunglife.4=korIndex|forIndex|rate|exchange
+Cyberir.auth.korIndexCode.samsunglife.4=kse|ksd
+Cyberir.auth.forIndexCode.samsunglife.4=DJI@DJI|SHS@000001|HSI@HSI|NII@NI225|LNS@FTSE100
+Cyberir.auth.exchangeCode.samsunglife.4=USD
+Cyberir.auth.rateCode.samsunglife.4=KUK3
+#16. 삭제
+#17. 모바일웹 - 회사소개 - IR  (구) [115] 삼성생명9(XML)
+Cyberir.url.samsunglife.5.kor=/cyberir/corpMainInner/samsunglife/cyberir_main5
+Cyberir.auth.samsunglife.5=stock|korIndex
+Cyberir.auth.simpleCode.samsunglife.5=032830
+Cyberir.auth.korIndexCode.samsunglife.5=kse|ksd
+#18. 금융상품  (구) [117] 삼성생명11
+Cyberir.url.samsunglife.6.kor=/cyberir/corpMainInner/samsunglife/cyberir_main6
+Cyberir.auth.samsunglife.6=korIndex|forIndex
+Cyberir.auth.korIndexCode.samsunglife.6=kse|ksd
+Cyberir.auth.forIndexCode.samsunglife.6=DJI@DJI|NAS@IXIC
+#19. 금융상품 상세보기 (팝업)  (구) [118] 삼성생명12
+Cyberir.url.samsunglife.7.kor=/cyberir/corpMainInner/samsunglife/cyberir_main7
+Cyberir.auth.samsunglife.7=korIndex|forIndex|exchange
+Cyberir.auth.korIndexCode.samsunglife.7=kse|ksd
+Cyberir.auth.forIndexCode.samsunglife.7=DJI@DJI|NAS@IXIC|SPI@SPX|NII@NI225|SHS@000001|HSI@HSI|HSI@HSCE|LNS@FTSE100|XTR@DAX30|PAS@CAC40
+Cyberir.auth.exchangeCode.samsunglife.7=USD
+#[099][100] 삼성생명-요약(국문,영문)
+#Cyberir.url.032830.1.kor=/cyberir/corpMainInner/samsunglife/cyberir_main
+#Cyberir.url.032830.1.eng=/cyberir/corpMainInner/samsunglife/eng/cyberir_main
+#Cyberir.auth.032830.1=stock|korIndex
+#Cyberir.auth.korIndexCode.032830.1=kse|ksd
+#삼성생명2
+#Cyberir.url.samsung.4.kor=/cyberir/corpMainInner/samsunglife/cyberir_main4
+#Cyberir.auth.samsung.4=kse
+#Cyberir.url.samsung.2.kor=/cyberir/corpMainInner/samsunglife/cyberir_main2
+#Cyberir.auth.samsung.2=korIndex
+#Cyberir.auth.korIndexCode.samsung.2=kse
+#삼성생명4
+#Cyberir.url.samsunglife.1.kor=/cyberir/corpMainInner/samsunglife/cyberir_main1
+#Cyberir.auth.samsunglife.1=korIndex|forIndex|exchange
+#Cyberir.auth.korIndexCode.samsunglife.1=kse|ksd
+#Cyberir.auth.forIndexCode.samsunglife.1=DJI@DJI|NAS@IXIC|SPI@SPX|SHS@000001|NII@NI225|HSI@HSCE|HSI@HSI|LNS@FTSE100|XTR@DAX30|PAS@CAC40
+#Cyberir.auth.exchangeCode.samsunglife.1=USD
+#[105][106] 삼성생명-기본형(현재가)(국문,영문) old
+#Cyberir.url.032830.3.kor=/cyberir/corpMainInner/samsunglife/current_value3
+#Cyberir.url.032830.3.eng=/cyberir/corpMainInner/samsunglife/eng/current_value3
+#Cyberir.auth.032830.3=stock|korIndexUp|korIndex
+#Cyberir.auth.korIndexCode.032830.3=kse|ksd
+#Cyberir.auth.korIndexUpCode.032830.3=25:1
+#삼성생명5
+#Cyberir.url.samsunglife.5.kor=/cyberir/corpMainInner/samsunglife/cyberir_main5
+#Cyberir.auth.samsunglife.5=korIndex
+#Cyberir.auth.korIndexCode.samsunglife.5=kse|ksd
+#삼성생명7 - 삼성생명6의 영문버전
+#Cyberir.url.samsunglife.7.kor=/cyberir/corpMainInner/samsunglife/cyberir_main7
+#Cyberir.auth.samsunglife.7=stock|korIndex
+#Cyberir.auth.simpleCode.samsunglife.7=032830
+#Cyberir.auth.korIndexCode.samsunglife.7=kse|ksd
+#삼성생명9
+#Cyberir.url.samsunglife.9.kor=/cyberir/corpMainInner/samsunglife/eng/cyberir_main9
+#Cyberir.auth.samsunglife.9=korIndex|forIndex|rate|exchange
+#Cyberir.auth.korIndexCode.samsunglife.9=kse|ksd
+#Cyberir.auth.forIndexCode.samsunglife.9=DJI@DJI|SHS@000001|HSI@HSI|NII@NI225|LNS@FTSE100
+#Cyberir.auth.exchangeCode.samsunglife.9=USD
+#Cyberir.auth.rateCode.samsunglife.9=KUK3
+
+#############################################################################
+
+#삼성정밀화학6(XML)
+Cyberir.url.004000.6.kor=/cyberir/corpMainInner/sfc/cyberir_main6
+Cyberir.auth.004000.6=exchange
+Cyberir.auth.exchangeCode.004000.6=USD
+
+#삼성화재-해지
+Cyberir.url.000810.1.kor=/cyberir/corpMainInner/samsungfire/index
+Cyberir.auth.000810.1=korIndex
+Cyberir.auth.korIndexCode.000810.1=kse
+
+Cyberir.url.000810.2.kor=/cyberir/corpMainInner/samsungfire/cyberir_main
+Cyberir.auth.000810.2=stock|korIndex|forIndex|rate|exchange
+Cyberir.auth.korIndexCode.000810.2=kse|ksd
+Cyberir.auth.simpleCode.000810.2=000810|005930|016360|012750
+Cyberir.auth.forIndexCode.000810.2=DJI@DJI|SPI@SPX
+Cyberir.auth.rateCode.000810.2=KUK3|KUK5|KUK10|KUK20|HAN3|COM3|CDS
+Cyberir.auth.exchangeCode.000810.2=USD|JPY|EUR|CNY
+
+#세정신문 20181231 closed
+#Cyberir.url.taxtimes.1.kor=/cyberir/corpMainInner/taxtimes/cyberir_main
+#Cyberir.auth.taxtimes.1=korIndex|forIndex|exchange|rate
+#Cyberir.auth.korIndexCode.taxtimes.1=kse|ksd|krx100|k200
+#Cyberir.auth.forIndexCode.taxtimes.1=DJI@DJI|NAS@IXIC|SPI@SPX|SPI@SPOEX|HSI@HSI
+#Cyberir.auth.exchangeCode.taxtimes.1=USD|JPY|EUR
+#Cyberir.auth.rateCode.taxtimes.1=KUK3|COM3
+
+#신영자산운용2
+Cyberir.url.shinyoung.2.kor=/cyberir/corpMainInner/shinyoung/cyberir_main2
+Cyberir.auth.shinyoung.2=korIndex|forIndex|exchange|rate
+Cyberir.auth.korIndexCode.shinyoung.2=kse|ksd|krx100|k200
+Cyberir.auth.forIndexCode.shinyoung.2=DJI@DJI|NAS@IXIC|SPI@SPX|SPI@SPOEX|HSI@HSI
+Cyberir.auth.exchangeCode.shinyoung.2=USD|JPY|EUR
+Cyberir.auth.rateCode.shinyoung.2=KUK3|COM3
+
+#신아일보(XML)
+Cyberir.url.shinailbo.1.kor=/cyberir/corpMainInner/shinailbo/cyberir_main
+Cyberir.auth.shinailbo.1=korIndex
+Cyberir.auth.korIndexCode.shinailbo.1=kse|ksd|k200
+
+#아시아타임즈
+Cyberir.url.asiatimes.1.kor=/cyberir/corpMainInner/asiatimes/cyberir_main
+Cyberir.auth.asiatimes.1=korIndex
+Cyberir.auth.korIndexCode.asiatimes.1=kse|ksd|k200
+
+#아프리카TV(XML)
+Cyberir.url.afreeca.1.kor=/cyberir/corpMainInner/afreeca/cyberir_main
+Cyberir.auth.afreeca.1=korIndex|rate|exchange
+Cyberir.auth.korIndexCode.afreeca.1=kse|k200|ksd
+Cyberir.auth.exchangeCode.afreeca.1=USD|JPY|EUR|CNY|HKD|CAD|GBP
+Cyberir.auth.rateCode.afreeca.1=LAST3|LAST7|LAST99|CALL
+
+#알리안츠글로벌인베스터스 20170811 jwahn newly add 20180920 삭제
+#Cyberir.url.allianz.1.kor=/cyberir/corpMainInner/allianz/cyberir_main
+#Cyberir.auth.allianz.1=korIndex|forIndex
+#Cyberir.auth.korIndexCode.allianz.1=kse|ksd|k200
+#Cyberir.auth.forIndexCode.allianz.1=DJI@DJI
+
+#에어스톡1 TODO
+#Cyberir.url.airstock.1.kor=/cyberir/corpMainInner/airstock/cyberir_main1
+#Cyberir.auth.airstock.1=korIndex|forIndex|future|rate|exchange
+#Cyberir.auth.korIndexCode.airstock.1=kse|ksd
+#Cyberir.auth.forIndexCode.airstock.1=DJI@DJI|NAS@IXIC|NII@NI225|SHS@000001
+#Cyberir.auth.exchangeCode.airstock.1=USD
+
+#에어스톡2 TODO
+#Cyberir.url.airstock.2.kor=/cyberir/corpMainInner/airstock/cyberir_main2
+#Cyberir.auth.airstock.2=korIndex|future
+#Cyberir.auth.korIndexCode.airstock.2=kse|ksd
+
+#에이앤씨바이오홀딩스-해지
+
+#에이플러스에셋(XML1) 20170629 서비스 종료
+#Cyberir.url.aplusasset.1.kor=/cyberir/corpMainInner/aplusasset/cyberir_main
+#Cyberir.auth.aplusasset.1=forIndex
+#Cyberir.auth.forIndexCode.aplusasset.1=DJI@DJI|NAS@IXIC
+
+#에이플러스에셋(XML2) 20170629 서비스 종료
+#Cyberir.url.aplusasset.2.kor=/cyberir/corpMainInner/aplusasset/cyberir_main2
+#Cyberir.auth.aplusasset.2=exchange|rate
+#Cyberir.auth.exchangeCode.aplusasset.2=USD
+#Cyberir.auth.rateCode.aplusasset.2=LAST3
+
+#이그잭스(XML) 20170629 서비스 종료
+#Cyberir.url.060230.1.kor=/cyberir/corpMainInner/exax/cyberir_main
+#Cyberir.auth.060230.1=stock|korIndex
+#Cyberir.auth.korIndexCode.060230.1=kse|ksd
+
+#인터넷KBS(XML) 20170629 서비스 종료
+#Cyberir.url.kbs.1.kor=/cyberir/corpMainInner/kbs/cyberir_main
+#Cyberir.auth.kbs.1=korIndex
+#Cyberir.auth.korIndexCode.kbs.1=kse|ksd|k200
+
+#재경일보(XML) 20170629 서비스 종료
+#Cyberir.url.jknews.1.kor=/cyberir/corpMainInner/jknews/cyberir_main
+#Cyberir.auth.jknews.1=korIndex|future
+#Cyberir.auth.korIndexCode.jknews.1=kse|ksd
+
+#마제스타-요약 <== 제이비어뮤즈먼트
+Cyberir.url.035480.1.kor=/cyberir/corpMainInner/majestar/cyberir_main
+Cyberir.auth.035480.1=stock
+
+#[160.1]마제스타-현재가
+Cyberir.url.035480.2.kor=/cyberir/corpMainInner/majestar/cyberir_main2
+Cyberir.auth.035480.2=stock
+
+#마제스타-공시
+Cyberir.url.notice.035480.1.kor=/cyberir/corpMainInner/majestar/notice
+
+#[166.1] 제이콘텐트리-신규화면
+#036420.4 ==> jcontentree.1
+Cyberir.url.jcontentree.1.kor=/cyberir/corpMainInner/jcontentree/cyberir_main_new
+Cyberir.auth.jcontentree.1=stock|korIndex
+Cyberir.auth.simpleCode.jcontentree.1=036420
+Cyberir.auth.korIndexCode.jcontentree.1=kse|ksd
+
+#[166.1] 제이콘텐트리-신규XML (일별)
+Cyberir.url.daily.jcontentree.1.kor=/cyberir/corpMainInner/jcontentree/daily_value
+Cyberir.auth.dailyCode.jcontentree.1=036420
+
+#제이콘텐트리-현재가
+Cyberir.url.036420.3.kor=/cyberir/corpMainInner/jcontentree/current_value
+Cyberir.auth.036420.3=stock
+
+#제이콘텐트리-시간대별
+Cyberir.url.036420.2.kor=/cyberir/corpMainInner/jcontentree/current_value2
+Cyberir.auth.036420.2=stock
+
+#제이콘텐트리-공시 [css 적용-개발에서 체크]
+Cyberir.url.notice.036420.2.kor=/cyberir/corpMainInner/jcontentree/notice
+
+#제이콘텐트리-종목(XML)
+Cyberir.url.036420.4.kor=/cyberir/corpMainInner/jcontentree/cyberir_main
+Cyberir.auth.036420.4=stock
+
+#제이콘텐트리-일자별(XML)
+Cyberir.url.daily.036420.1.kor=/cyberir/corpMainInner/jcontentree/daily_value
+
+#코스닥협회
+Cyberir.url.kosdaqca.1.kor=/cyberir/corpMainInner/kosdaqca/cyberir_main
+Cyberir.auth.kosdaqca.1=korIndex
+Cyberir.auth.korIndexCode.kosdaqca.1=kse|ksd
+
+#코스인코리아 (아모레퍼시픽 종목코드 이용-090430)
+# 지수
+#Cyberir.url.090430.1.kor=/cyberir/corpMainInner/cosinKorea/cyberir_main
+#Cyberir.auth.090430.1=korIndex
+#Cyberir.auth.korIndexCode.090430.1=kse|ksd|k200
+# 현재가 모음
+#Cyberir.url.090430.2.kor=/cyberir/corpMainInner/cosinKorea/current_value_all
+#Cyberir.auth.090430.2=stock
+#Cyberir.auth.simpleCode.090430.2=090430|090435|051900|192820|161890|214420|078520|123690|003350|027050|016100|014100|052260|123330|078140|069110|115960|092730|036670|101240|138360|226320
+# 종목별 현재가
+#Cyberir.url.stock.090430.1.kor=/cyberir/corpMainInner/cosinKorea/current_value
+#Cyberir.url.stock.090435.1.kor=/cyberir/corpMainInner/cosinKorea/current_value
+#Cyberir.url.stock.051900.1.kor=/cyberir/corpMainInner/cosinKorea/current_value
+#Cyberir.url.stock.192820.1.kor=/cyberir/corpMainInner/cosinKorea/current_value
+#Cyberir.url.stock.161890.1.kor=/cyberir/corpMainInner/cosinKorea/current_value
+#Cyberir.url.stock.214420.1.kor=/cyberir/corpMainInner/cosinKorea/current_value
+#Cyberir.url.stock.078520.1.kor=/cyberir/corpMainInner/cosinKorea/current_value
+#Cyberir.url.stock.123690.1.kor=/cyberir/corpMainInner/cosinKorea/current_value
+#Cyberir.url.stock.003350.1.kor=/cyberir/corpMainInner/cosinKorea/current_value
+#Cyberir.url.stock.027050.1.kor=/cyberir/corpMainInner/cosinKorea/current_value
+#Cyberir.url.stock.016100.1.kor=/cyberir/corpMainInner/cosinKorea/current_value
+#Cyberir.url.stock.014100.1.kor=/cyberir/corpMainInner/cosinKorea/current_value
+#Cyberir.url.stock.052260.1.kor=/cyberir/corpMainInner/cosinKorea/current_value
+#Cyberir.url.stock.123330.1.kor=/cyberir/corpMainInner/cosinKorea/current_value
+#Cyberir.url.stock.078140.1.kor=/cyberir/corpMainInner/cosinKorea/current_value
+#Cyberir.url.stock.069110.1.kor=/cyberir/corpMainInner/cosinKorea/current_value
+#Cyberir.url.stock.115960.1.kor=/cyberir/corpMainInner/cosinKorea/current_value
+#Cyberir.url.stock.092730.1.kor=/cyberir/corpMainInner/cosinKorea/current_value
+#Cyberir.url.stock.036670.1.kor=/cyberir/corpMainInner/cosinKorea/current_value
+#Cyberir.url.stock.101240.1.kor=/cyberir/corpMainInner/cosinKorea/current_value
+#Cyberir.url.stock.138360.1.kor=/cyberir/corpMainInner/cosinKorea/current_value
+#Cyberir.url.stock.226320.1.kor=/cyberir/corpMainInner/cosinKorea/current_value
+# 종목별 일자별
+#Cyberir.url.daily.090430.1.kor=/cyberir/corpMainInner/cosinKorea/daily_value
+#Cyberir.url.daily.090435.1.kor=/cyberir/corpMainInner/cosinKorea/daily_value
+#Cyberir.url.daily.051900.1.kor=/cyberir/corpMainInner/cosinKorea/daily_value
+#Cyberir.url.daily.192820.1.kor=/cyberir/corpMainInner/cosinKorea/daily_value
+#Cyberir.url.daily.161890.1.kor=/cyberir/corpMainInner/cosinKorea/daily_value
+#Cyberir.url.daily.214420.1.kor=/cyberir/corpMainInner/cosinKorea/daily_value
+#Cyberir.url.daily.078520.1.kor=/cyberir/corpMainInner/cosinKorea/daily_value
+#Cyberir.url.daily.123690.1.kor=/cyberir/corpMainInner/cosinKorea/daily_value
+#Cyberir.url.daily.003350.1.kor=/cyberir/corpMainInner/cosinKorea/daily_value
+#Cyberir.url.daily.027050.1.kor=/cyberir/corpMainInner/cosinKorea/daily_value
+#Cyberir.url.daily.016100.1.kor=/cyberir/corpMainInner/cosinKorea/daily_value
+#Cyberir.url.daily.014100.1.kor=/cyberir/corpMainInner/cosinKorea/daily_value
+#Cyberir.url.daily.052260.1.kor=/cyberir/corpMainInner/cosinKorea/daily_value
+#Cyberir.url.daily.123330.1.kor=/cyberir/corpMainInner/cosinKorea/daily_value
+#Cyberir.url.daily.078140.1.kor=/cyberir/corpMainInner/cosinKorea/daily_value
+#Cyberir.url.daily.069110.1.kor=/cyberir/corpMainInner/cosinKorea/daily_value
+#Cyberir.url.daily.115960.1.kor=/cyberir/corpMainInner/cosinKorea/daily_value
+#Cyberir.url.daily.092730.1.kor=/cyberir/corpMainInner/cosinKorea/daily_value
+#Cyberir.url.daily.036670.1.kor=/cyberir/corpMainInner/cosinKorea/daily_value
+#Cyberir.url.daily.101240.1.kor=/cyberir/corpMainInner/cosinKorea/daily_value
+#Cyberir.url.daily.138360.1.kor=/cyberir/corpMainInner/cosinKorea/daily_value
+#Cyberir.url.daily.226320.1.kor=/cyberir/corpMainInner/cosinKorea/daily_value
+# 종목별 외국인
+#Cyberir.url.foreign.090430.1.kor=/cyberir/corpMainInner/cosinKorea/foreigner_info
+#Cyberir.url.foreign.090435.1.kor=/cyberir/corpMainInner/cosinKorea/foreigner_info
+#Cyberir.url.foreign.051900.1.kor=/cyberir/corpMainInner/cosinKorea/foreigner_info
+#Cyberir.url.foreign.192820.1.kor=/cyberir/corpMainInner/cosinKorea/foreigner_info
+#Cyberir.url.foreign.161890.1.kor=/cyberir/corpMainInner/cosinKorea/foreigner_info
+#Cyberir.url.foreign.214420.1.kor=/cyberir/corpMainInner/cosinKorea/foreigner_info
+#Cyberir.url.foreign.078520.1.kor=/cyberir/corpMainInner/cosinKorea/foreigner_info
+#Cyberir.url.foreign.123690.1.kor=/cyberir/corpMainInner/cosinKorea/foreigner_info
+#Cyberir.url.foreign.003350.1.kor=/cyberir/corpMainInner/cosinKorea/foreigner_info
+#Cyberir.url.foreign.027050.1.kor=/cyberir/corpMainInner/cosinKorea/foreigner_info
+#Cyberir.url.foreign.016100.1.kor=/cyberir/corpMainInner/cosinKorea/foreigner_info
+#Cyberir.url.foreign.014100.1.kor=/cyberir/corpMainInner/cosinKorea/foreigner_info
+#Cyberir.url.foreign.052260.1.kor=/cyberir/corpMainInner/cosinKorea/foreigner_info
+#Cyberir.url.foreign.123330.1.kor=/cyberir/corpMainInner/cosinKorea/foreigner_info
+#Cyberir.url.foreign.078140.1.kor=/cyberir/corpMainInner/cosinKorea/foreigner_info
+#Cyberir.url.foreign.069110.1.kor=/cyberir/corpMainInner/cosinKorea/foreigner_info
+#Cyberir.url.foreign.115960.1.kor=/cyberir/corpMainInner/cosinKorea/foreigner_info
+#Cyberir.url.foreign.092730.1.kor=/cyberir/corpMainInner/cosinKorea/foreigner_info
+#Cyberir.url.foreign.036670.1.kor=/cyberir/corpMainInner/cosinKorea/foreigner_info
+#Cyberir.url.foreign.101240.1.kor=/cyberir/corpMainInner/cosinKorea/foreigner_info
+#Cyberir.url.foreign.138360.1.kor=/cyberir/corpMainInner/cosinKorea/foreigner_info
+#Cyberir.url.foreign.226320.1.kor=/cyberir/corpMainInner/cosinKorea/foreigner_info
+
+#코아스웰 20180822 미사용 추정, 추후 삭제
+Cyberir.url.071950.1.kor=/cyberir/corpMainInner/koaswell/cyberir_main
+Cyberir.auth.071950.1=stock
+
+#큐로홀딩스-요약 (구 에스비텍)
+Cyberir.url.051780.1.kor=/cyberir/corpMainInner/curoholdings/cyberir_main
+Cyberir.url.051780.1.eng=/cyberir/corpMainInner/curoholdings/eng/cyberir_main
+Cyberir.auth.051780.1=stock
+#큐로홀딩스-현재가
+Cyberir.url.stock.051780.1.kor=/cyberir/corpMainInner/curoholdings/current_value
+Cyberir.url.stock.051780.1.eng=/cyberir/corpMainInner/curoholdings/eng/current_value
+#큐로홀딩스-공시
+Cyberir.url.notice.051780.1.kor=/cyberir/corpMainInner/curoholdings/notice
+Cyberir.url.notice.051780.1.eng=/cyberir/corpMainInner/curoholdings/eng/notice
+#큐로컴-요약
+Cyberir.url.040350.1.kor=/cyberir/corpMainInner/curocom/cyberir_main
+Cyberir.auth.040350.1=stock
+#큐로컴-현재가
+Cyberir.url.stock.040350.1.kor=/cyberir/corpMainInner/curocom/current_value
+
+#키움자산운용 => 키움증권
+Cyberir.url.kiwoomam.2.kor=/cyberir/corpMainInner/kiwoomam/cyberir_main2
+Cyberir.auth.kiwoomam.2=korIndex|forIndex|rate|exchange
+Cyberir.auth.korIndexCode.kiwoomam.2=kse|ksd|k200
+Cyberir.auth.forIndexCode.kiwoomam.2=DJI@DJI|NII@NI225|NAS@IXIC
+Cyberir.auth.exchangeCode.kiwoomam.2=USD|JPY
+Cyberir.auth.rateCode.kiwoomam.2=KUK3
+
+#키움투자
+#kiwoomam 키움투자 NSE 인도지수 20180920 삭제
+#Cyberir.url.kiwoomam.1.kor=/cyberir/corpMainInner/kiwoomam/cyberir_main
+#Cyberir.auth.kiwoomam.1=commodity
+#Cyberir.auth.commodityCode.kiwoomam.1=NSE
+
+#wooriam 우리투자 NSE 인도지수(XML)
+#Cyberir.url.wooriam.1.kor=/cyberir/corpMainInner/wooriam/cyberir_main
+#Cyberir.auth.wooriam.1=commodity
+#Cyberir.auth.commodityCode.wooriam.1=NSE
+
+#태영 20180822 미사용 추정, 삭제
+#Cyberir.url.009410.1.kor=/cyberir/corpMainInner/taeyoung/cyberir_main
+#Cyberir.auth.009410.1=stock
+
+#파란닷컴 KT (XML) 20170629 서비스 종료
+#Cyberir.url.paran.1.kor=/cyberir/corpMainInner/paran/cyberir_main
+#Cyberir.auth.paran.1=korIndex|exchange
+#Cyberir.auth.korIndexCode.paran.1=kse|ksd
+#Cyberir.auth.exchangeCode.paran.1=USD
+
+#파이낸셜뉴스(XML) 20170629 서비스 종료
+#Cyberir.url.fnnews.1.kor=/cyberir/corpMainInner/fnnews/cyberir_main
+#Cyberir.auth.fnnews.1=korIndex|forIndex|exchange
+#Cyberir.auth.korIndexCode.fnnews.1=kse|ksd
+#Cyberir.auth.forIndexCode.fnnews.1=DJI@DJI|NAS@IXIC
+#Cyberir.auth.exchangeCode.fnnews.1=USD|JPY
+
+#펀드온라인코리아(XML)
+Cyberir.url.fundonlinekorea.1.kor=/cyberir/corpMainInner/fundonlinekorea/cyberir_main
+Cyberir.auth.fundonlinekorea.1=korIndex|exchange|rate
+Cyberir.auth.korIndexCode.fundonlinekorea.1=kse|ksd|k200
+Cyberir.auth.exchangeCode.fundonlinekorea.1=USD|JPY|EUR
+Cyberir.auth.rateCode.fundonlinekorea.1=LAST3|LAST7|LAST99
+
+#포커스뉴스(XML)
+Cyberir.url.focus.1.kor=/cyberir/corpMainInner/focus/cyberir_main
+Cyberir.auth.focus.1=korIndex|forIndex|rate|exchange
+Cyberir.auth.korIndexCode.focus.1=kse|k200|ksd|krx100
+Cyberir.auth.forIndexCode.focus.1=DJI@DJI|NAS@IXIC|SPI@SPX|SPI@SPOEX|HSI@HSI
+Cyberir.auth.exchangeCode.focus.1=USD|JPY|EUR|BRL
+Cyberir.auth.rateCode.focus.1=KUK3|COM3|globalgold
+
+#코스콤 홈페이지 지수(XML)
+Cyberir.url.koscom.1.kor=/cyberir/corpMainInner/koscom/cyberir_main
+Cyberir.auth.koscom.1=korIndex|forIndex|exchange
+Cyberir.auth.korIndexCode.koscom.1=kse|k200|ksd|krx100
+Cyberir.auth.forIndexCode.koscom.1=DJI@DJI|NAS@IXIC
+Cyberir.auth.exchangeCode.koscom.1=USD|JPY
+
+
+#하나은행(XML) 20170629 서비스 종료
+#하나은행(XML)  --HSI@HSCE =HSI(홍콩H,hang seng china),  HSI@HSI=HANGSENG(hang seng index)
+#Cyberir.url.086790.1.kor=/cyberir/corpMainInner/hanabank/cyberir_main
+#Cyberir.auth.086790.1=stock|forIndex|korIndex
+#Cyberir.auth.korIndexCode.086790.1=kse|k200|ksd
+#Cyberir.auth.forIndexCode.086790.1=DJI@DJI|NAS@IXIC|SPI@SPX|NII@NI225|SHS@000001|HSI@HSCE|HSI@HSI|LNS@FTSE100|XTR@DAX30|INI@BSE30|RUI@RTSI|BRI@BVSP
+#Cyberir.auth.rateCode.086790.1=LAST3|US3M
+
+#한국도로공사1 20180824 미사용 추정
+#Cyberir.url.exway.1.kor=/cyberir/corpMainInner/exway/cyberir_main
+#Cyberir.auth.exway.1=korIndex|rate|exchange|future
+#Cyberir.auth.korIndexCode.exway.1=kse|ksd
+#Cyberir.auth.exchangeCode.exway.1=USD|JPY|EUR
+#Cyberir.auth.rateCode.exway.1=KUK3|KUK5|KUK10
+
+#한국도로공사2 20180824 미사용 추정
+#Cyberir.url.exway.2.kor=/cyberir/corpMainInner/exway/cyberir_main2
+#Cyberir.auth.exway.2=korIndex|rate|exchange|future
+#Cyberir.auth.korIndexCode.exway.2=kse|ksd
+#Cyberir.auth.exchangeCode.exway.2=USD|JPY|EUR
+#Cyberir.auth.rateCode.exway.2=KUK3|KUK5|KUK10
+
+#한국도로공사3 20180824 미사용 추정
+#Cyberir.url.exway.3.kor=/cyberir/corpMainInner/exway/cyberir_main3
+#Cyberir.auth.exway.3=korIndex|forIndex|rate|exchange|future
+#Cyberir.auth.korIndexCode.exway.3=kse|k200|ksd
+#Cyberir.auth.forIndexCode.exway.3=DJI@DJI|NAS@IXIC
+#Cyberir.auth.exchangeCode.exway.3=USD|JPY|EUR|GBP|CNY|HKD
+#Cyberir.auth.rateCode.exway.3=KUK3|KUK5|KUK10|COM3|HAN3|CDS
+
+#한국인터넷미디어 20170629 서비스 종료
+#Cyberir.url.internetmedia.1.kor=/cyberir/corpMainInner/internetmedia/cyberir_main
+#Cyberir.auth.internetmedia.1=korIndex|forIndex|exchange|future
+#Cyberir.auth.korIndexCode.internetmedia.1=kse|ksd
+#Cyberir.auth.forIndexCode.internetmedia.1=DJI@DJI|NAS@IXIC
+#Cyberir.auth.exchangeCode.internetmedia.1=USD|JPY
+
+#한국전력-현재가
+Cyberir.url.015760.1.kor=/cyberir/corpMainInner/kepco/current_value
+Cyberir.auth.015760.1=stock|korIndex
+Cyberir.auth.korIndexCode.015760.1=kse|ksd
+
+#[193.1] 한국전력-요약(국문)
+Cyberir.url.015760.2.kor=/cyberir/corpMainInner/kepco/current_value2
+Cyberir.auth.015760.2=stock|korIndex|forIndex
+Cyberir.auth.korIndexCode.015760.2=kse|ksd
+Cyberir.auth.forIndexCode.015760.2=DJI@DJI
+
+#[193.2] 한국전력-요약(영문)
+Cyberir.url.015760.2.eng=/cyberir/corpMainInner/kepco/eng/current_value2
+
+#한국전력-일별
+Cyberir.url.daily.015760.1.kor=/cyberir/corpMainInner/kepco/daily_chart_value
+
+#한국전력-외국인
+Cyberir.url.foreign.015760.1.kor=/cyberir/corpMainInner/kepco/foreigner_info
+
+#한국전력-xml 20171030 신규
+Cyberir.url.015760.user_data.kor=/cyberir/corpMainInner/kepco/user_data_20171030_ver1
+Cyberir.auth.015760.user_data=stock|korIndex|exchange
+Cyberir.auth.korIndexCode.015760.user_data=kse|ksd
+Cyberir.auth.exchangeCode.015760.user_data=USD|EUR|JPY
+
+
+#한라건설 -> (주)한라
+Cyberir.url.014790.1.kor=/cyberir/corpMainInner/halla/cyberir_main
+Cyberir.auth.014790.1=stock
+
+#한라건설(XML) -> (주)한라
+Cyberir.url.014790.2.kor=/cyberir/corpMainInner/halla/cyberir_main2
+Cyberir.auth.014790.2=korIndex|stock
+Cyberir.auth.korIndexCode.014790.2=kse
+
+#한라건설-공시 -> (주)한라
+Cyberir.url.notice.014790.1.kor=/cyberir/corpMainInner/halla/notice
+#한라건설-공시(mobile) 2017-08-04 추가 -> (주)한라
+Cyberir.url.notice.014790.2.kor=/cyberir/corpMainInner/halla/notice_mobile
+
+
+#한전산업개발-요약(flash) 20170603 jwahn add
+Cyberir.url.130660.3.kor=/cyberir/corpMainInner/kepid/flash
+Cyberir.auth.130660.3=stock
+#한전산업개발-요약
+Cyberir.url.130660.2.kor=/cyberir/corpMainInner/kepid/cyberir_main
+Cyberir.auth.130660.2=stock
+#한전산업개발-현재가
+Cyberir.url.130660.1.kor=/cyberir/corpMainInner/kepid/current_value
+Cyberir.auth.130660.1=korIndex|stock
+Cyberir.auth.korIndexCode.130660.1=kse|k200|ksd
+#한전산업개발-일자별
+Cyberir.url.daily.130660.1.kor=/cyberir/corpMainInner/kepid/daily_chart_value
+
+#휴니드, #[214] 휴니드 - 영문
+Cyberir.auth.005870.1=stock|korIndex
+Cyberir.url.005870.1.kor=/cyberir/corpMainInner/huneed/cyberir_main
+Cyberir.url.005870.1.eng=/cyberir/corpMainInner/huneed/eng/cyberir_main
+Cyberir.auth.korIndexCode.005870.1=kse
+
+#BRIDGE_STOCK(XML) 브릿지경제 20170629 무상 서비스 대상 / 20171115 해지
+#Cyberir.url.bridge.1.kor=/cyberir/corpMainInner/bridge/cyberir_main
+#Cyberir.auth.bridge.1=korIndex
+#Cyberir.auth.korIndexCode.bridge.1=kse|k200|ksd
+
+#이비엔경제신문(XML)
+Cyberir.url.ebn.1.kor=/cyberir/corpMainInner/ebn/cyberir_main
+Cyberir.auth.ebn.1=korIndex
+Cyberir.auth.korIndexCode.ebn.1=kse|k200|ksd
+
+#FREE_STOCK(XML) 20170629 서비스 종료
+#Cyberir.url.freestock.1.kor=/cyberir/corpMainInner/freestock/cyberir_main
+#Cyberir.auth.freestock.1=korIndex
+#Cyberir.auth.korIndexCode.freestock.1=kse|k200|ksd
+
+#G2R (LG-AD)
+Cyberir.url.035000.1.kor=/cyberir/corpMainInner/g2r/cyberir_main
+Cyberir.auth.035000.1=stock|korIndex
+Cyberir.auth.korIndexCode.035000.1=kse|ksd
+
+#G2R-현재가(XML)
+Cyberir.url.stock.035000.3.kor=/cyberir/corpMainInner/g2r/current_value
+
+
+#G2R-일별(XML)
+Cyberir.url.daily.035000.1.kor=/cyberir/corpMainInner/g2r/daily_value
+
+
+
+#GKL-해지?
+
+
+#IBK캐피탈 20181011 해지 / 전산정보부 전성수 차장 531-9381
+#Cyberir.url.ibkcapital.1.kor=/cyberir/corpMainInner/ibkcapital/cyberir_main
+#Cyberir.auth.ibkcapital.1=exchangeBuySell|korIndex|rate
+#Cyberir.auth.exchangeCode.ibkcapital.1=EUR|USD|JPY|CNY
+#Cyberir.auth.korIndexCode.ibkcapital.1=kse|ksd|k200
+#Cyberir.auth.rateCode.ibkcapital.1=LAST99|CALL|LAST7|LAST3
+
+#KB자산운용1
+#Cyberir.url.kbam.1.kor=/cyberir/corpMainInner/kbam/cyberir_main
+#Cyberir.auth.kbam.1=korIndex|forIndex|exchange|rate
+#Cyberir.auth.korIndexCode.kbam.1=kse|k200|ksd
+#Cyberir.auth.forIndexCode.kbam.1=DJI@DJI|NAS@IXIC|NII@NI225
+#Cyberir.auth.exchangeCode.kbam.1=USD|JPY
+#Cyberir.auth.rateCode.kbam.1=LAST3
+
+#KB자산운용2
+#Cyberir.url.kbam.1.kor=/cyberir/corpMainInner/kbam/cyberir_main2
+#Cyberir.auth.kbam.1=korIndex|forIndex|exchange|rate
+#Cyberir.auth.korIndexCode.kbam.1=kse|k200|ksd
+#Cyberir.auth.forIndexCode.kbam.1=DJI@DJI|NAS@IXIC|NII@NI225
+#Cyberir.auth.exchangeCode.kbam.1=USD|JPY
+#Cyberir.auth.rateCode.kbam.1=LAST3
+
+#KB자산운용3
+#Cyberir.url.kbam.3.kor=/cyberir/corpMainInner/kbam/cyberir_main3
+#Cyberir.auth.kbam.3=korIndex
+#Cyberir.auth.korIndexCode.kbam.3=kse|k200|ksd
+
+#KB자산운용(XML1) (TODO rate check)
+Cyberir.url.kbam.1.kor=/cyberir/corpMainInner/kbam2/cyberir_main1
+Cyberir.auth.kbam.1=korIndex|forIndex|exchange|rate
+Cyberir.auth.korIndexCode.kbam.1=kse|k200|ksd
+Cyberir.auth.forIndexCode.kbam.1=DJI@DJI|NAS@IXIC|NII@NI225
+Cyberir.auth.exchangeCode.kbam.1=USD|JPY
+Cyberir.auth.rateCode.kbam.1=LAST3
+
+#KB자산운용(XML2)
+#Cyberir.url.kbam2.2.kor=/cyberir/corpMainInner/kbam2/cyberir_main2
+#Cyberir.auth.kbam2.2=korIndex
+#Cyberir.auth.korIndexCode.kbam2.2=kse|k200|ksd
+
+#KB자산운용(XML3)
+#Cyberir.url.kbam2.3.kor=/cyberir/corpMainInner/kbam2/cyberir_main3
+#Cyberir.auth.kbam2.3=forIndex
+#Cyberir.auth.forIndexCode.kbam2.3=DJI@DJI|NAS@IXIC|NII@NI225
+
+#KTIC1 => SBI인베스트먼트-요약(사이트에선 찾지 못함)
+Cyberir.url.019550.1.kor=/cyberir/corpMainInner/sbiinvestment/cyberir_main
+Cyberir.auth.019550.1=stock
+
+#KTIC2 => SBI인베스트먼트-일별(사이트 사용중)
+Cyberir.url.daily.019550.1.kor=/cyberir/corpMainInner/sbiinvestment/daily_chart_value
+
+#KTIC-공시 => SBI인베스트먼트-공시(사이트 사용중)
+#Cyberir.url.notice.019550.2.kor=/cyberir/corpMainInner/ktic/notice
+Cyberir.url.notice.019550.2.kor=/cyberir/corpMainInner/sbiinvestment/notice
+
+#KTIC_GLOBAL1 => 글로본-요약 (사이트에선 찾지 못함) 20170703 서비스 종료
+#Cyberir.url.019660.1.kor=/cyberir/corpMainInner/globon/cyberir_main
+#Cyberir.auth.019660.1=stock|korIndex
+#Cyberir.auth.korIndexCode.019660.1=kse|ksd|k200
+
+#KTIC_GLOBAL2 => 글로본-일별 (사이트에선 찾지 못함)20170703 서비스 종료
+#Cyberir.url.daily.019660.1.kor=/cyberir/corpMainInner/globon/daily_chart_value
+
+#KTIC GLOBAL- 공시 20170703 서비스 종료
+#Cyberir.url.notice.019660.2.kor=/cyberir/corpMainInner/ktic_global/notice
+
+#KTIC GLOBAL- 공시(작은창) 20170703 서비스 종료
+#Cyberir.url.notice.019660.3.kor=/cyberir/corpMainInner/ktic_global/notice3
+
+#한국투자신탁운용(XML)(M9PHIM|MXID)
+Cyberir.url.kim.1.kor=/cyberir/corpMainInner/kim/cyberir_main
+Cyberir.auth.kim.1=forIndex
+Cyberir.auth.forIndexCode.kim.1=TSE@TSI01|TSE@TLI02|TSE@TLI03|M9PHIM|MXID
+
+#KT ==> 인텔리안시스 intelliansys(XML)
+Cyberir.url.intelliansys.1.kor=/cyberir/corpMainInner/intelliansys/cyberir_main
+Cyberir.auth.intelliansys.1=stock
+Cyberir.auth.simpleCode.intelliansys.1=030200
+
+#LG상사1(XML)
+Cyberir.url.001120.2.kor=/cyberir/corpMainInner/lg_int/cyberir_main
+Cyberir.auth.001120.2=stock|korIndex
+Cyberir.auth.korIndexCode.001120.2=kse
+
+#LG상사2(XML) = 실제 사용
+Cyberir.url.001120.1.kor=/cyberir/corpMainInner/lg_int/cyberir_main2
+Cyberir.auth.001120.1=stock
+
+#LG전자-요약 20180920 삭제
+#LG전자-요약(영문) Invalid
+#Cyberir.url.066570.3.kor=/cyberir/corpMainInner/lge/cyberir_main
+#Cyberir.url.066570.3.eng=/cyberir/corpMainInner/lge/eng/cyberir_main
+#Cyberir.auth.066570.3=stock
+
+#LG전자-공시, 공시3(작은창) 20180920 삭제
+#Cyberir.url.notice.066570.2.kor=/cyberir/corpMainInner/lgelectronics/notice
+#Cyberir.url.notice.066570.3.kor=/cyberir/corpMainInner/lgelectronics/notice3
+
+#LG전자-기본형(국문,영문) 20180920 삭제
+#Cyberir.url.stock.066570.2.kor=/cyberir/corpMainInner/lgelectronics/current_value
+#Cyberir.url.stock.066570.2.eng=/cyberir/corpMainInner/lgelectronics/eng/current_value
+
+#[254.4] LG전자- 요약형 20180920 삭제 20181025 re-open for homepage
+Cyberir.url.066570.4.kor=/cyberir/corpMainInner/lgelectronics/cyberir_main
+Cyberir.auth.066570.4=stock|korIndex
+Cyberir.auth.korIndexCode.066570.4=kse|ksd
+
+#[254+] LG전자-시간대별 20180920 삭제
+#시간,현재가,전일대비,등락률,체결량,거래량
+#Cyberir.url.time.066570.2.kor=/cyberir/corpMainInner/lgelectronics/time_value
+
+#[254+] LG전자-일자별 20180920 삭제
+#날짜,종가,대비,비율,시가,고가,저가,거래량
+#Cyberir.url.daily.066570.2.kor=/cyberir/corpMainInner/lgelectronics/daily_chart_value
+
+#[254+] LG전자-외국인 20180920 삭제
+#날짜,발행주식수,외국인보유주,변동량,보유율,현재가,등략률,전일대비,거래량
+#Cyberir.url.foreign.066570.2.kor=/cyberir/corpMainInner/lgelectronics/foreigner_info
+
+##LG전자 홈페이지 사용 (20171023)
+#LG투자 ==> LG전자-투자정보 => #LG전자(new) 20171019
+Cyberir.url.066570.1.kor=/cyberir/corpMainInner/lge/lge
+Cyberir.url.stock.066570.1.kor=/cyberir/corpMainInner/lgelectronics_new/current_value
+Cyberir.url.time.066570.1.kor=/cyberir/corpMainInner/lgelectronics_new/time_value
+Cyberir.url.daily.066570.1.kor=/cyberir/corpMainInner/lgelectronics_new/daily_chart_value
+Cyberir.url.index.066570.1.kor=/cyberir/corpMainInner/lgelectronics_new/indexinfo_graph
+Cyberir.url.notice.066570.1.kor=/cyberir/corpMainInner/lgelectronics_new/notice
+Cyberir.url.foreign.066570.1.kor=/cyberir/corpMainInner/lgelectronics_new/foreigner_info
+Cyberir.url.rate.066570.1.kor=/cyberir/corpMainInner/lgelectronics_new/money_rate
+Cyberir.url.exchange.066570.1.kor=/cyberir/corpMainInner/lgelectronics_new/exchange_rate
+Cyberir.auth.066570.1=stock
+
+Cyberir.url.066570.xml1.kor=/cyberir/corpMainInner/lgelectronics/xml1
+Cyberir.auth.066570.xml1=stock
+
+
+##LG생활건강 (20171026) 누락 이전 lgcare
+Cyberir.url.stock.051900.1.kor=/cyberir/formatted/current_value
+Cyberir.url.time.051900.1.kor=/cyberir/formatted/time_value
+Cyberir.url.daily.051900.1.kor=/cyberir/formatted/daily_chart_value
+Cyberir.url.index.051900.1.kor=/cyberir/formatted/indexinfo_graph
+Cyberir.url.notice.051900.1.kor=/cyberir/formatted/notice
+Cyberir.url.foreign.051900.1.kor=/cyberir/formatted/foreigner_info
+Cyberir.auth.051900.1=stock
+
+#LG화학(XML) 20180920 삭제
+#Cyberir.url.051910.1.kor=/cyberir/corpMainInner/lg_chemi/cyberir_main
+#Cyberir.auth.051910.1=stock
+
+#LS전선1-종목(XML)
+Cyberir.url.006260.1.kor=/cyberir/corpMainInner/lscable/cyberir_main1
+Cyberir.auth.006260.1=stock
+Cyberir.auth.simpleCode.006260.1=006260|010120|017940|015360|000500|003550
+
+#LS전선2-주가지수(XML)
+Cyberir.url.006260.2.kor=/cyberir/corpMainInner/lscable/cyberir_main2
+Cyberir.auth.006260.2=korIndex
+Cyberir.auth.korIndexCode.006260.2=kse|ksd
+
+#LS전선3-환율(XML) CrossRate,TradeDate 필요함 ==> 외환은행 고시환율
+Cyberir.url.006260.3.kor=/cyberir/corpMainInner/lscable/cyberir_main3
+Cyberir.auth.006260.3=exchangeByKEB
+
+#LS전선4-원자재(XML)
+Cyberir.url.006260.4.kor=/cyberir/corpMainInner/lscable/cyberir_main4
+Cyberir.auth.006260.4=rawMat
+Cyberir.auth.rawMatCode.006260.4=MCD|MAD|MND|DU
+
+#LS전선5-금리(XML) rate와 rateExchangeClose 차이
+Cyberir.url.006260.5.kor=/cyberir/corpMainInner/lscable/cyberir_main5
+Cyberir.auth.006260.5=rate
+Cyberir.auth.rateCode.006260.5=KUK3|CALL|LIB@USD03M
+
+#LS전선6-추이(XML)
+Cyberir.url.daily.006260.6.kor=/cyberir/corpMainInner/lscable/cyberir_main6
+Cyberir.auth.dailyCode.006260.6=006260
+
+#LS전선7-지수추이(XML) == KOSPI, KOSDAQ 20개씩
+#Cyberir.auth.006260.7=daily
+Cyberir.url.daily.index.006260.7.kor=/cyberir/corpMainInner/lscable/cyberir_main7
+Cyberir.auth.dailyCode.006260.7=kse|ksd
+
+#LS전선8-환율추이(XML) TODO == 특수 케이스로 처리 USD, JPY, EUR, CNY 90개씩
+#Cyberir.url.daily.exchange.006260.8.kor=/cyberir/corpMainInner/lscable/cyberir_main8
+#Cyberir.auth.dailyCode.006260.8=USD|JPY|EUR|CNY
+Cyberir.url.006260.8.kor=/cyberir/corpMainInner/lscable/cyberir_main8
+Cyberir.auth.006260.8=exchangeHistoryByKEB
+
+#LS전선9-원자재추이(XML)
+Cyberir.url.006260.9.kor=/cyberir/corpMainInner/lscable/cyberir_main9
+Cyberir.auth.006260.9=rawMatDaily
+Cyberir.auth.rawMatCode.006260.9=MCD|MAD|MND|DU
+
+#LS전선10-금리추이(XML) TODO == CALL, 국고채3년 LAST3, 리보3M LIB@USD03M
+Cyberir.url.daily.rate.006260.10.kor=/cyberir/corpMainInner/lscable/cyberir_main10
+Cyberir.auth.dailyCode.006260.10=CALL|LAST3|LIB@USD03M
+
+
+## LG CNS 관리 / LG 그룹 포탈 사용
+#LG CNS(국내)
+Cyberir.url.lgcns.4.kor=/cyberir/corpMainInner/lgcns/cyberir_main4
+Cyberir.auth.lgcns.4=korIndex
+Cyberir.auth.korIndexCode.lgcns.4=kse|ksd
+#LG CNS(환율)
+Cyberir.url.lgcns.5.kor=/cyberir/corpMainInner/lgcns/cyberir_main5
+Cyberir.auth.lgcns.5=exchangeBuySell
+Cyberir.auth.exchangeCode.lgcns.5=USD|JPY|EUR
+
+#LG CNS(4대그룹-메인) 20171023 신규
+Cyberir.url.lgcns.big4.kor=/cyberir/corpMainInner/lgcns/big4_main
+Cyberir.auth.lgcns.big4=big4
+Cyberir.auth.simpleCode.lgcns.big4=
+#LG CNS - LG그룹
+Cyberir.url.lgcns.big4sub1.kor=/cyberir/corpMainInner/lgcns/big4_list
+Cyberir.auth.lgcns.big4sub1=stock|big4
+
+Cyberir.auth.simpleCode.lgcns.big4sub1=\
+051910|\
+051915|\
+051900|\
+051905|\
+003550|\
+003555|\
+066570|\
+066575|\
+034220|\
+032640|\
+011070|\
+001120|\
+108670|\
+108675|\
+108320|\
+035000
+#LG CNS - 삼성그룹
+Cyberir.url.lgcns.big4sub2.kor=/cyberir/corpMainInner/lgcns/big4_list
+Cyberir.auth.lgcns.big4sub2=stock|big4
+Cyberir.auth.simpleCode.lgcns.big4sub2=\
+005930\
+|005935\
+|028260\
+|02826K\
+|032830\
+|207940\
+|018260\
+|006400\
+|006405\
+|000810\
+|000815\
+|008770\
+|008775\
+|009150\
+|009155\
+|010140\
+|010145\
+|016360\
+|028050\
+|029780\
+|012750\
+|030000\
+|067280
+#LG CNS - 현대그룹
+Cyberir.url.lgcns.big4sub3.kor=/cyberir/corpMainInner/lgcns/big4_list
+Cyberir.auth.lgcns.big4sub3=stock|big4
+Cyberir.auth.simpleCode.lgcns.big4sub3=\
+005380\
+|005385\
+|005387\
+|012330\
+|000270\
+|004020\
+|000720\
+|000725\
+|086280\
+|001500\
+|214320\
+|004560\
+|004565\
+|005389\
+|011210\
+|064350
+#LG CNS - SK그룹
+Cyberir.url.lgcns.big4sub4.kor=/cyberir/corpMainInner/lgcns/big4_list
+Cyberir.auth.lgcns.big4sub4=stock|big4
+Cyberir.auth.simpleCode.lgcns.big4sub4=\
+000660\
+|017670\
+|034730\
+|03473K\
+|096770\
+|096775\
+|001510\
+|001515\
+|001740\
+|001745\
+|006120\
+|006125\
+|011790\
+|015350\
+|210980\
+|018670\
+|060570\
+|057500\
+|052260\
+|007820\
+|036490
+#LG CNS - 계열사별 상세 화면
+Cyberir.url.daily.lgcns.big4detail.kor=/cyberir/corpMainInner/lgcns/big4_detail
+
+#LGCNS(XML) 국내지수, 테스트 20170808 jwahn add ==> 20170818 종료
+#Cyberir.url.lgcns.test.kor=/cyberir/corpMainInner/lgcns/kor_index_xml_test
+#Cyberir.auth.lgcns.test=korIndex
+#Cyberir.auth.korIndexCode.lgcns.test=kse|ksd|k200
+
+#LG하우시스
+Cyberir.url.lghausys.1.kor=/cyberir/corpMainInner/lghausys/cyberir_main
+Cyberir.auth.lghausys.1=korIndex|stock
+Cyberir.auth.korIndexCode.lghausys.1=kse
+Cyberir.auth.simpleCode.lghausys.1=108670|108675
+
+#LG전자(LG Global)-일별(영문) ==> [255] LG투자 참고
+Cyberir.url.daily.066570.1.eng=/cyberir/corpMainInner/lge/eng/daily_chart_value3
+
+#LG전자(LG Global)-현재가(영문)
+Cyberir.url.stock.066570.1.eng=/cyberir/corpMainInner/lge/eng/current_value3
+
+#SBS CNBC2
+Cyberir.url.sbscnbc.2.kor=/cyberir/corpMainInner/sbscnbc/cyberir_main1
+Cyberir.auth.sbscnbc.2=korIndex|forIndex
+Cyberir.auth.korIndexCode.sbscnbc.2=kse|ksd
+Cyberir.auth.forIndexCode.sbscnbc.2=NAS@NDX|NAS@IXIC
+
+#SBS CNBC4_1
+Cyberir.url.sbscnbc.41.kor=/cyberir/corpMainInner/sbscnbc/cyberir_main2
+Cyberir.auth.sbscnbc.41=korIndex|future|forIndex
+Cyberir.auth.korIndexCode.sbscnbc.41=kse|ksd
+Cyberir.auth.forIndexCode.sbscnbc.41=NAS@IXIC|DJI@DJI
+
+#SBS CNBC 20190211 renewal / json
+Cyberir.url.sbscnbc.json.kor=/cyberir/corpMainInner/sbscnbc/json
+Cyberir.auth.sbscnbc.json=korIndex|forIndex|exchange
+Cyberir.auth.korIndexCode.sbscnbc.json=kse|ksd
+Cyberir.auth.forIndexCode.sbscnbc.json=NAS@IXIC|DJI@DJI
+Cyberir.auth.exchangeCode.sbscnbc.json=USD|EUR|JPY|CNY
+
+#SBS CNBC6(XML1)
+#Cyberir.url.sbscnbc.6.kor=/cyberir/corpMainInner/sbscnbc/cyberir_main3
+#Cyberir.auth.sbscnbc.6=korIndex|forIndex|exchange
+#Cyberir.auth.korIndexCode.sbscnbc.6=kse|ksd
+#Cyberir.auth.forIndexCode.sbscnbc.6=DJI@DJI|NAS@IXIC
+#Cyberir.auth.exchangeCode.sbscnbc.6=USD|EUR|JPY|CNY
+Cyberir.url.sbscnbc.1.kor=/cyberir/corpMainInner/sbscnbc/cyberir_main3
+Cyberir.auth.sbscnbc.1=korIndex|forIndex|exchange
+Cyberir.auth.korIndexCode.sbscnbc.1=kse|ksd
+Cyberir.auth.forIndexCode.sbscnbc.1=DJI@DJI|NAS@IXIC
+Cyberir.auth.exchangeCode.sbscnbc.1=USD|EUR|JPY|CNY
+
+#SBS CNBC7
+Cyberir.url.sbscnbc.7.kor=/cyberir/corpMainInner/sbscnbc/cyberir_main4
+Cyberir.auth.sbscnbc.7=korIndex|future|forIndex|exchange
+Cyberir.auth.korIndexCode.sbscnbc.7=kse|ksd
+Cyberir.auth.forIndexCode.sbscnbc.7=NAS@IXIC|DJI@DJI
+Cyberir.auth.exchangeCode.sbscnbc.7=USD|EUR|JPY|CNY
+
+#[276][277][278][279] SK1,SK2,SK1-영문,SK2-영문 ==> 20170328 003600/003605 코드가 더이상 유효하지 않음, 해지인 것으로 추정
+#Cyberir.url.003600.1.kor=/cyberir/corpMainInner/skcorp/cyberir_main1
+#Cyberir.url.003600.1.eng=/cyberir/corpMainInner/skcorp/cyberir_main1
+#Cyberir.auth.003600.1=stock
+#Cyberir.auth.simpleCode.003600.1=003600|003605
+
+#Cyberir.url.003600.2.kor=/cyberir/corpMainInner/skcorp/eng/cyberir_main2
+#Cyberir.url.003600.2.eng=/cyberir/corpMainInner/skcorp/eng/cyberir_main2
+#Cyberir.auth.003600.2=korIndex|korIndexUp
+#Cyberir.auth.korIndexCode.003600.1=kse
+#Cyberir.auth.korIndexUpCode.003600.1=8:1
+
+##SK가스 / skgas : 20180131 해지
+#SK가스1
+#Cyberir.url.018670.1.kor=/cyberir/corpMainInner/skgas/cyberir_main1
+#Cyberir.auth.018670.1=stock|korIndex|korIndexUp
+#Cyberir.auth.korIndexCode.018670.1=kse|ksd
+#Cyberir.auth.korIndexUpCode.018670.1=16:1
+#SK가스2
+#Cyberir.url.018670.2.kor=/cyberir/corpMainInner/skgas/cyberir_main2
+#Cyberir.auth.018670.2=stock|korIndex|korIndexUp
+#Cyberir.auth.korIndexCode.018670.2=kse|ksd
+#Cyberir.auth.korIndexUpCode.018670.2=16:1
+#SK가스3
+#Cyberir.url.018670.3.kor=/cyberir/corpMainInner/skgas/cyberir_main3
+#Cyberir.auth.018670.3=stock
+#[282+] SK가스-현재가,시간대별,일자별,분석차트,지수정보,외국인정보,환율
+#Cyberir.url.stock.018670.1.kor=/cyberir/formatted/current_value
+#Cyberir.url.time.018670.1.kor=/cyberir/formatted/time_value
+#Cyberir.url.daily.018670.1.kor=/cyberir/formatted/daily_chart_value
+##Cyberir.url.analysis.018670.1.kor=/cyberir/formatted/current_value
+#Cyberir.url.index.018670.1.kor=/cyberir/formatted/indexinfo_graph
+#Cyberir.url.foreign.018670.1.kor=/cyberir/formatted/foreigner_info
+#Cyberir.url.exchange.018670.1.kor=/cyberir/formatted/exchange_rate
+
+#SK C&C(XML) SKCNC
+Cyberir.url.skcnc.1.kor=/cyberir/corpMainInner/skcnc/cyberir_main
+Cyberir.auth.skcnc.1=exchange|rate|forIndex|commodity
+Cyberir.auth.forIndexCode.skcnc.1=HSI@HSI|SHS@000001|DJI@DJI|NAS@IXIC|BRI@BVSP|IDI@JKSE|LNS@FTSE100|MYI@KLSE|SGI@STI|TRI@ISE100
+Cyberir.auth.rateCode.skcnc.1=US05Y|KUK5|LIB@USD03M|LIB@USD06M
+Cyberir.auth.exchangeCode.skcnc.1=USD|JPY|EUR|GBP|SGD|IDR|MYR|CNY|BRL|TRY
+Cyberir.auth.commodityCode.skcnc.1=NYM@CL|LME@CDY|NYM@QL
+
+#SK그룹-종목(XML) 20180202 SK C&C 인듯
+Cyberir.url.096770.4.kor=/cyberir/corpMainInner/sk/cyberir_main
+Cyberir.auth.096770.4=stock
+#Cyberir.auth.simpleCode.096770.4=096770|017670|001740|006120|011790|034730|001510|018670|000660|210980|036490|285130
+Cyberir.auth.simpleCode.096770.4=096770|017670|001740|006120|011790|034730|018670|000660|210980|036490|285130
+
+#SK그룹-주가(XML)
+Cyberir.url.096770.5.kor=/cyberir/corpMainInner/sk/cyberir_main2
+Cyberir.auth.096770.5=korIndex|forIndex
+Cyberir.auth.korIndexCode.096770.5=kse|ksd
+Cyberir.auth.forIndexCode.096770.5=DJI@DJI|NAS@IXIC|SPI@SPX|NII@NI225|HSI@HSI
+
+#SK그룹-환율(XML)
+Cyberir.url.096770.6.kor=/cyberir/corpMainInner/sk/cyberir_main3
+Cyberir.auth.096770.6=exchange
+Cyberir.auth.exchangeCode.096770.6=USD|JPY|EUR|CNY|INR
+
+#SK그룹-환율_위안화기준(XML) TODO
+Cyberir.url.096770.7.kor=/cyberir/corpMainInner/sk/cyberir_main4
+Cyberir.auth.096770.7=exchangeByCountry
+Cyberir.auth.exchangeCode.096770.7=CNY
+
+#SK그룹-유가(XML)
+Cyberir.url.096770.8.kor=/cyberir/corpMainInner/sk/cyberir_main5
+Cyberir.auth.096770.8=commodity
+Cyberir.auth.commodityCode.096770.8=NYM@CL|SPT@DU|IPE@EB
+
+#SK그룹-금리_국내(XML)
+Cyberir.url.096770.9.kor=/cyberir/corpMainInner/sk/cyberir_main6
+Cyberir.auth.096770.9=rate
+Cyberir.auth.rateCode.096770.9=LAST1|LAST3|LAST4|LAST7|LAST99
+#Cyberir.auth.rateCode.096770.9=LAST1|KUK3|KUK5|COM3|LAST99
+
+#SK그룹-금리_해외(XML)
+Cyberir.url.096770.10.kor=/cyberir/corpMainInner/sk/cyberir_main7
+Cyberir.auth.096770.10=rate
+Cyberir.auth.rateCode.096770.10=LIB@USD03M|LIB@USD06M
+
+#SK그룹-환율_루피화기준(XML)
+Cyberir.url.096770.11.kor=/cyberir/corpMainInner/sk/cyberir_main11
+Cyberir.auth.096770.11=exchangeByCountry
+Cyberir.auth.exchangeCode.096770.11=INR
+
+#shinhan(XML) 신한금융투자
+Cyberir.url.shinhan.1.kor=/cyberir/corpMainInner/shinhan/cyberir_main
+Cyberir.auth.shinhan.1=commodity
+Cyberir.auth.commodityCode.shinhan.1=SPI@SPUSDTR|SPI@SPUSDT1I|DJI@DJCCN1IT|DJI@DJCICNT\
+|DJI@DJC2LCLT|DJCIHGT|DJIAFT2L|DJI@DJCISOT|DJI@DJCINGT|DJI@DJCSO1IT|DJI@DJCNG1IT\
+|DJI@DJCICLT|SPI@SPGSICLT|SGXTRID|SGXNRIID\
+|DJI@DJC2ICLT|DJIAFT2I\
+|DJC2LSIT|DJC2ISIT
+#2017-09-15 상장 예정
+#2017-09-20 상장 예정
+#|DJCNG2LT|DJCNG2IT
+
+#더스토리 / 용도: 신한금융지주 인트라넷(엘리베이터)
+Cyberir.url.thestory.1.kor=/cyberir/corpMainInner/thestory/cyberir_main
+Cyberir.auth.thestory.1=stock|korIndex
+Cyberir.auth.simpleCode.thestory.1=055550
+Cyberir.auth.korIndexCode.thestory.1=kse|ksd|k200
+
+####################################################################################################
+
+#두산인프라코어-환율(XML)
+Cyberir.auth.042670.11=exchange
+Cyberir.auth.exchangeCode.042670.11=USD|EUR|GBP|JPY|CNY
+#두산인프라코어-시세(XML)
+Cyberir.url.042670.12.kor=/cyberir/corpMainInner/doosaninfra2/cyberir_main2
+Cyberir.auth.042670.12=stock|korIndex
+Cyberir.auth.korIndexCode.042670.12=kse|ksd
+#두산인프라코어-해외(XML)
+Cyberir.url.042670.13.kor=/cyberir/corpMainInner/doosaninfra2/cyberir_main3
+Cyberir.auth.042670.13=forIndex
+Cyberir.auth.forIndexCode.042670.13=DJI@DJI|NAS@IXIC|SPI@SPX|NII@NI225
+#두산인프라코어-현재가
+Cyberir.url.042670.14.kor=/cyberir/corpMainInner/doosaninfra2/cyberir_main
+Cyberir.auth.042670.14=stock
+#두산인프라코어3(XML)
+Cyberir.url.042670.3.kor=/cyberir/corpMainInner/doosaninfra/cyberir_main2
+Cyberir.auth.042670.3=stock|korIndex|forIndex|exchange
+Cyberir.auth.korIndexCode.042670.3=kse|ksd
+Cyberir.auth.forIndexCode.042670.3=DJI@DJI|NAS@IXIC|SPI@SPX|NII@NI225
+Cyberir.auth.exchangeCode.042670.3=USD|JPY|EUR|CNY
+#두산인프라코어5(XML)
+Cyberir.url.042670.5.kor=/cyberir/corpMainInner/doosaninfra/cyberir_main4
+Cyberir.auth.042670.5=stock|korIndex|forIndex|exchange
+Cyberir.auth.korIndexCode.042670.5=kse|ksd
+Cyberir.auth.forIndexCode.042670.5=DJI@DJI|NAS@IXIC|SPI@SPX|NII@NI225
+Cyberir.auth.exchangeCode.042670.5=USD|JPY|EUR|CNY|GBP
+#두산인프라코어-현재가/두산인프라코어-현재가(영문) 20170224
+#Cyberir.url.stock.042670.2.kor=/cyberir/corpMainInner/doosaninfra3/current_value.jsp
+#Cyberir.url.stock.042670.2.eng=/cyberir/corpMainInner/doosaninfra3/eng/current_value.jsp
+#Cyberir.auth.042670.2=stock
+#두산인프라코어-현재가/두산인프라코어-현재가(영문) -> 리뉴얼 20170224
+#Cyberir.url.stock.042670.24.kor=/cyberir/corpMainInner/doosaninfra4/current_value.jsp
+#Cyberir.url.stock.042670.24.eng=/cyberir/corpMainInner/doosaninfra4/eng/current_value.jsp
+#Cyberir.auth.042670.24=stock
+
+#삼성정밀화학-공시-해지
+#Cyberir.url.notice.004000.55.kor=/cyberir/corpMainInner/sfc/notice
+
+#코스믹인베스트/ 20171103, 20180313
+#Cyberir.url.cosmicinvest.total_new.kor=/cyberir/corpMainInner/cosmicinvest/total_new_page
+#Cyberir.auth.cosmicinvest.total_new=korIndex|korIndexDaily|exchange
+#Cyberir.auth.korIndexCode.cosmicinvest.total_new=kse|ksd|k200
+#Cyberir.auth.exchangeCode.cosmicinvest.total_new=USD|JPY|EUR|CNY
+
+#Cyberir.url.cosmicinvest.total.kor=/cyberir/corpMainInner/cosmicinvest/total_page
+#Cyberir.auth.cosmicinvest.total=korIndex|korIndexDaily|exchange
+#Cyberir.auth.korIndexCode.cosmicinvest.total=kse|ksd|k200
+#Cyberir.auth.exchangeCode.cosmicinvest.total=USD|JPY|EUR|CNY
+
+#Cyberir.url.cosmicinvest.mobile.kor=/cyberir/corpMainInner/cosmicinvest/mobile_page
+#Cyberir.auth.cosmicinvest.mobile=korIndex|korIndexDaily|exchange
+#Cyberir.auth.korIndexCode.cosmicinvest.mobile=kse|ksd|k200
+#Cyberir.auth.exchangeCode.cosmicinvest.mobile=USD|JPY|EUR|CNY
+
+#Cyberir.url.cosmicinvest.xml.kor=/cyberir/corpMainInner/cosmicinvest/xml_20171103_ver1
+#Cyberir.auth.cosmicinvest.xml=korIndex|korIndexDaily|exchange
+#Cyberir.auth.korIndexCode.cosmicinvest.xml=kse|ksd|k200
+#Cyberir.auth.exchangeCode.cosmicinvest.xml=USD|JPY|EUR|CNY
+
+#Cyberir.url.cosmicinvest.1.kor=/cyberir/corpMainInner/cosmicinvest/current_index_summary
+#Cyberir.auth.cosmicinvest.1=korIndex
+#Cyberir.auth.korIndexCode.cosmicinvest.1=kse|ksd|k200
+#Cyberir.auth.exchangeCode.cosmicinvest.1=USD|JPY|EUR|CNY
+
+#레드마운틴(JSP)
+#kse,ksd,dow,nas
+#Cyberir.url.redmountain.1.kor=/cyberir/corpMainInner/redmountain/cyberir_main
+#Cyberir.auth.redmountain.1=korIndex
+#Cyberir.auth.korIndexCode.redmountain.1=kse|ksd
+#Cyberir.auth.forIndexCode.redmountain.1=DJI@DJI|NAS@IXIC
+
+###### TEST ######
+#Cyberir.auth.000150.99=stock
+#Cyberir.auth.simpleCode.000150.99=000150|052260
+
+## SAMPLE ##
+#ticker1
+Cyberir.auth.sample.ticker1=stock|korIndex
+Cyberir.auth.simpleCode.sample.ticker1=005930
+Cyberir.auth.korIndexCode.sample.ticker1=kse|ksd
+Cyberir.url.sample.ticker1.kor=/site/sample/ticker/sample_ticker_1
+
+#current stock
+Cyberir.auth.simpleCode.sample.1=005930
+Cyberir.url.stock.sample.1.kor=/cyberir/formatted/current_value
+Cyberir.url.time.sample.1.kor=/cyberir/formatted/time_value
+Cyberir.url.daily.sample.1.kor=/cyberir/formatted/daily_chart_value
+Cyberir.url.index.sample.1.kor=/cyberir/formatted/indexinfo_graph
+Cyberir.url.notice.sample.1.kor=/cyberir/formatted/notice
+Cyberir.url.foreign.sample.1.kor=/cyberir/formatted/foreigner_info
+
+###################################################################################
+#카멜레온홀딩스- cmstock (html) 20190404
+###################################################################################
+Cyberir.url.cmstock.html.kor=/cyberir/corpMainInner/cmstock/index_html
+Cyberir.auth.cmstock.html=korIndex
+Cyberir.auth.korIndexCode.cmstock.html=kse|ksd|k200
+
+###################################################################################
+#모토브- motov (json) 20190411
+###################################################################################
+Cyberir.url.motov.json.kor=/cyberir/corpMainInner/motov/json
+Cyberir.auth.motov.json=korIndex|exchange
+Cyberir.auth.korIndexCode.motov.json=kse|ksd
+Cyberir.auth.exchangeCode.motov.json=USD
+
+
+###################################################################################
+#투데이코리아- todaykorea (html_new) 20190618
+###################################################################################
+Cyberir.url.todaykorea.html_new.kor=/cyberir/corpMainInner/todaykorea/index_html_new
+Cyberir.auth.todaykorea.html_new=korIndex
+Cyberir.auth.korIndexCode.todaykorea.html_new=kse|ksd|k200
+
+#투데이코리아- todaykorea 환율(XML) ==> 외환은행 고시환율 (운영에서 이유없이 에러가 나서 폴더를 변경함)
+Cyberir.url.todaykorea.2.kor=/cyberir/corpMainInner/testtoday/cyberir_main2
+Cyberir.auth.todaykorea.2=exchangeByKEB
