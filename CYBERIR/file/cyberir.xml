@@ -144,43 +144,43 @@ rawMat:ci_daily_f
 # ####################################################################################################################
 # 구 권한 체계
 #-----------------------------------------------------------------------------------------------------------------
-# 1,         2,       3,         4,      5,   6,      7,        8,              9,    10,   11,       12
+# 1,     2,     3,     4,    5,   6,    7,    8,        9,  10,   11,     12
 # 종목정보,  거래소,  거래소200, 코스닥, Q50, KRX100, 해외지수, 환율/금리 종가, 금리, 환율, 업종코드, 업종비트
 #-----------------------------------------------------------------------------------------------------------------
 # datamall.cyberircorpmainpageurl.028150.1.kor=/cyberir/corpMainInner/gshs/cyberir_main.jsp
 # datamall.cyberir.mainPageInfo.028150.1=true|true|false|true|false|false|false|false|false|false|-1|-1
 # ####################################################################################################################
-# 신 권한 체계                                                                                  20170323 jwahn, jsshin
+# 신 권한 체계                                          20170323 jwahn, jsshin
 # ====================================================================================================================
-# [1] Web Page JSP Path        : Cyberir.url.{custId}.{pagePart}.{lang}=/cyberir/corpMainInner/...
-#                                * {custId}는 siteName 또는 simpleCode를 사용        (ex) shinhan, jknews, 005930, 000660, ... Cyberir.auth.dailyCode.006260.7
+# [1] Web Page JSP Path    : Cyberir.url.{custId}.{pagePart}.{lang}=/cyberir/corpMainInner/...
+#                * {custId}는 siteName 또는 simpleCode를 사용    (ex) shinhan, jknews, 005930, 000660, ... Cyberir.auth.dailyCode.006260.7
 # ---------------------------- : -------------------------------------------------------------------------------------
-# [2] Authorization-Main     : Cyberir.auth.${custId}.{pagePart}={authName}|{authName}|...
+# [2] Authorization-Main   : Cyberir.auth.${custId}.{pagePart}={authName}|{authName}|...
 # ---------------------------- : -------------------------------------------------------------------------------------
 # [3] Authorization-Detail   : Cyberir.auth.{authDetail}.{custId}.{pagePart}=${authCode}|${authCode}|...
 # ---------------------------- : -------------------------------------------------------------------------------------
-#                              :   {authName}             {authDetail}              {authCode}
-#                              : -------------------------------------------------------------------------------------
-#                   종목(현재) :    stock              ==> simpleCode            ==> 000660, 005930, ...
-#               국내지수(현재) :    korIndex           ==> korIndexCode          ==> kse, ksd, k200, krx100
-#               국내지수(일별) :    korIndexDaily      ==> korIndexCode          ==> (")
-#             국내지수(업종별) :    korIndexUp         ==> korIndexUpCode        ==> 16:1, ...
+#                :   {authName}       {authDetail}        {authCode}
+#                : -------------------------------------------------------------------------------------
+#           종목(현재) :  stock        ==> simpleCode      ==> 000660, 005930, ...
+#         국내지수(현재) :  korIndex       ==> korIndexCode      ==> kse, ksd, k200, krx100
+#         국내지수(일별) :  korIndexDaily    ==> korIndexCode      ==> (")
+#       국내지수(업종별) :  korIndexUp     ==> korIndexUpCode    ==> 16:1, ...
 #
-#               해외지수(현재) :    forIndex           ==> forIndexCode          ==> DJI@DJI, NAX@IXIC, ...
-#                   금리(현재) :    rate               ==> rateCode              ==> LAST7, LAST3, globalgold, ...
+#         해외지수(현재) :  forIndex       ==> forIndexCode      ==> DJI@DJI, NAX@IXIC, ...
+#           금리(현재) :  rate         ==> rateCode        ==> LAST7, LAST3, globalgold, ...
 #LAST1국고채1년|LAST3국고채3년|LAST4국고채5년|LAST7회사채AA-|LAST99CD91일
-#                   환율(현재) :    exchange           ==> exchangeCode          ==> USD, JPY, EUR, CNY, ...
-#       환율(외환은행고시환율) :    exchangeByKEB      ==> (n/a)
-#       환율(외환은행고시환율) :    exchangeHistoryByKEB ==> (n/a)
-#               환율(기준국가) :    exchangeByCountry  ==> exchangeCode          ==> CNY, INR
-#               환율(사고팔때) :    exchangeBuySell    ==> exchangeCode          ==> USD, JPY, EUR, CNY
-#                상품(석유 등) :    commodity          ==> commodityCode         ==> SPT@DU, NSE, NYM@CL, ...
-#                 원자재(현재) :    rawMat             ==> rawMatCode            ==> MCD, MAD, MND, ...
-#                 원자재(일별) :    rawMatDaily        ==> rawMatCode            ==> MCD, MAD, MND, ...
+#           환율(현재) :  exchange       ==> exchangeCode      ==> USD, JPY, EUR, CNY, ...
+#     환율(외환은행고시환율) :  exchangeByKEB    ==> (n/a)
+#     환율(외환은행고시환율) :  exchangeHistoryByKEB ==> (n/a)
+#         환율(기준국가) :  exchangeByCountry  ==> exchangeCode      ==> CNY, INR
+#         환율(사고팔때) :  exchangeBuySell  ==> exchangeCode      ==> USD, JPY, EUR, CNY
+#        상품(석유 등) :  commodity      ==> commodityCode     ==> SPT@DU, NSE, NYM@CL, ...
+#         원자재(현재) :  rawMat       ==> rawMatCode      ==> MCD, MAD, MND, ...
+#         원자재(일별) :  rawMatDaily    ==> rawMatCode      ==> MCD, MAD, MND, ...
 #
-#       국내지수(K200동일가중) :    k200w              ==> (n/a)
+#     국내지수(K200동일가중) :  k200w        ==> (n/a)
 
-#        기타(LG 4대그룹 요약) :    lgBig4             ==> (n/a)
+#    기타(LG 4대그룹 요약) :  lgBig4       ==> (n/a)
 #		국고채1년 LAST1 // 국고채3년 LAST3 // 국고채5년 LAST4 // 회사채3년AA LAST7 // CD91일 LAST99  //
 #####################################################################################################################
 
@@ -802,9 +802,9 @@ Cyberir.auth.rateCode.miraestock.1=LAST99|LAST3|CALL|LAST7
 #Cyberir.auth.korIndexCode.bujun.3=kse|ksd
 
 #################################################################
-##                                                             ##
-##                          삼성생명                           ##
-##                                                             ##
+##                               ##
+##              삼성생명               ##
+##                               ##
 #################################################################
 
 #1&3. 기본형  (구) [107] 삼성생명-기본형2(현재가)(국문/영문)
